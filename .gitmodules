@@ -4,3 +4,6 @@
 [submodule "puppet/modules/stdlib"]
 	path = puppet/modules/stdlib
 	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
+[submodule "puppet/modules/phpldapadmin"]
+	path = puppet/modules/phpldapadmin
+	url = https://github.com/Spantree/puppet-phpldapadmin.git

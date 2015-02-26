@@ -8,4 +8,12 @@ class { 'ldap::client':
     base => 'dc=foo,dc=bar'
 }
 
-include ldap
+class { 'phpldapadmin':
+  ldap_host      => 'localhost',
+  ldap_suffix    => 'dc=foo,dc=bar',
+  ldap_bind_id   => 'cn=root,dc=foo,dc=bar',
+  ldap_bind_pass => '{SHA}iEPX+SQWIR3p67lj/0zigSWTKHg=',
+  require        => Class['ldap::server::master'],
+}
+
+include ldap, phpldapadmin
