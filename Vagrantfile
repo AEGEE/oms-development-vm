@@ -1,6 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# If you want to use this on a Windows host, you probably want to look at this:
+#  * http://stackoverflow.com/questions/5917249/git-symlinks-in-windows
+#  * https://help.github.com/articles/dealing-with-line-endings/
+
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.network "forwarded_port", guest: 80, host: 8080
@@ -10,9 +14,9 @@ Vagrant.configure(2) do |config|
   #   vb.memory = "1024"
   # end
 
-#  config.vm.provision :puppet do |puppet|
-#    puppet.manifests_path = 'puppet/manifests'
-#    puppet.manifest_file = 'site.pp'
-#    puppet.module_path = 'puppet/modules'
-#  end
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = 'puppet/manifests'
+    puppet.manifest_file = 'site.pp'
+    puppet.module_path = 'puppet/modules'
+  end
 end
