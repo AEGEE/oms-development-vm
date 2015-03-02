@@ -7,7 +7,7 @@ Simple LDAP server with Vagrant and Puppet as proof-of-concept of these technolo
 ### How do I get set up? ###
 
 * Install [Vagrant](https://www.vagrantup.com/downloads.html).
-* Clone this repository _recursively_ with ```git clone --resursive <URL>```.
+* Clone this repository _recursively_ with ```git clone --recursive <URL>```.
 * Start the virtual machine with ```vagrant up``` from within the repository folder.
 * Visit phpLDAPadmin at http://localhost:8080/phpldapadmin in a browser.
 
