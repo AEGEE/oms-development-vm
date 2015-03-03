@@ -1,6 +1,6 @@
 class { 'ldap::server::master':
   suffix      => 'dc=foo,dc=bar',
-  rootpw      => '{SHA}iEPX+SQWIR3p67lj/0zigSWTKHg=',
+  rootpw      => '{SSHA}o55pAdS3VSTvfd1RPSIEnHM2MvBlQdOt',
 }
 
 class { 'ldap::client':
@@ -11,8 +11,8 @@ class { 'ldap::client':
 class { 'phpldapadmin':
   ldap_host      => 'localhost',
   ldap_suffix    => 'dc=foo,dc=bar',
-  ldap_bind_id   => 'cn=root,dc=foo,dc=bar',
-  ldap_bind_pass => '{SHA}iEPX+SQWIR3p67lj/0zigSWTKHg=',
+  ldap_bind_id   => 'cn=admin,dc=foo,dc=bar',
+  ldap_bind_pass => '{SSHA}o55pAdS3VSTvfd1RPSIEnHM2MvBlQdOt',
   require        => Class['ldap::server::master'],
 }
 
