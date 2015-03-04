@@ -4,15 +4,15 @@ class { 'ldap::server::master':
 }
 
 class { 'ldap::client':
-    uri  => 'ldap://localhost',
-    base => 'dc=foo,dc=bar'
+  uri  => 'ldap://localhost',
+  base => 'dc=foo,dc=bar'
 }
 
 class { 'phpldapadmin':
   ldap_host      => 'localhost',
   ldap_suffix    => 'dc=foo,dc=bar',
   ldap_bind_id   => 'cn=admin,dc=foo,dc=bar',
-  ldap_bind_pass => '{SSHA}o55pAdS3VSTvfd1RPSIEnHM2MvBlQdOt',
+  ldap_bind_pass => 'aegee', # TODO: not sure what this means
   require        => Class['ldap::server::master'],
 }
 
