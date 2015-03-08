@@ -1,10 +1,32 @@
+# Add aegee schema such that it can be included in slapd.conf
 file { '/etc/ldap/schema/aegee.schema':
   ensure => file,
   mode   => 644,
   owner  => 'root',
   group  => 'root',
-  source => '/vagrant/aegee.schema',
+  source => 'puppet:///modules/aegee_db_files/aegee.schema',
   before => Class['ldap::server::master'],
+}
+
+# Copy all DB files to node
+file { "/var/opt/aegee":
+  ensure => "directory",
+  owner  => "root",
+  group  => "root",
+  mode   => 755,
+  recurse => remote,
+  source  => "puppet:///modules/aegee_db_files/",
+}
+
+# Run ldapadd to import some LDIF files
+# TODO(ingo): this is very hacky!
+exec { "import ldif files":
+  command => '/usr/bin/ldapadd -x -w aegee -D "cn=admin,dc=aegee,dc=org" \
+               -f /var/opt/aegee/users.ldif',
+  user    => "root",
+  require => [ File['/var/opt/aegee'],
+               Class['ldap::server::master'],
+	     ],
 }
 
 class { 'ldap::server::master':
