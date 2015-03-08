@@ -1,6 +1,16 @@
+file { '/etc/ldap/schema/aegee.schema':
+  ensure => file,
+  mode   => 644,
+  owner  => 'root',
+  group  => 'root',
+  source => '/vagrant/aegee.schema',
+  before => Class['ldap::server::master'],
+}
+
 class { 'ldap::server::master':
   suffix      => 'dc=aegee,dc=org',
   rootpw      => '{SSHA}o55pAdS3VSTvfd1RPSIEnHM2MvBlQdOt',
+  schema_inc  => [ 'aegee' ],
 }
 
 class { 'ldap::client':
