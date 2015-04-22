@@ -19,15 +19,21 @@ file { "/var/opt/aegee":
 }
 
 # Run ldapadd to import some LDIF files
-# TODO(ingo): this is very hacky!
+#fabrizio's try (first does not work, second does)
 exec { "import ldif files":
-  command => '/usr/bin/ldapadd -x -w aegee -D "cn=admin,dc=aegee,dc=org" \
-               -f /var/opt/aegee/users.ldif',
+  command => '/var/opt/aegee/import-log-indices.sh',
   user    => "root",
   require => [ File['/var/opt/aegee'],
                Class['ldap::server::master'],
-	     ],
+              ],
 }
+exec { "import ldif structure":
+  command => '/var/opt/aegee/import-structure.sh',
+  user    => "root",
+  require => [ Exec['import ldif files'],
+              ],
+}
+
 
 class { 'ldap::server::master':
   suffix      => 'dc=aegee,dc=org',

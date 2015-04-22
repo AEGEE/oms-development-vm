@@ -7,7 +7,9 @@
 
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
-  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.hostname = "aegee-virtual"
+  config.vm.network "forwarded_port", guest: 80, host: 8888
+  config.vm.network "forwarded_port", guest: 389, host: 4444
 
   # config.vm.provider "virtualbox" do |vb|
   #   # Customize the amount of memory on the VM:

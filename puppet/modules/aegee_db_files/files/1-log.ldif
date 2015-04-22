@@ -1,3 +1,4 @@
+
 dn: cn=config
 changetype: modify
 add: olcLogLevel
