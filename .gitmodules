@@ -7,3 +7,6 @@
 [submodule "puppet/modules/phpldapadmin"]
 	path = puppet/modules/phpldapadmin
 	url = https://github.com/Spantree/puppet-phpldapadmin.git
+[submodule "puppet/modules/ldapdn"]
+	path = puppet/modules/ldapdn
+	url = https://github.com/gtmtechltd/puppet_ldapdn.git

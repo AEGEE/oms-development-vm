@@ -54,4 +54,19 @@ class { 'phpldapadmin':
   require        => Class['ldap::server::master'],
 }
 
+ldapdn{"random modification to test ldapdn":
+  dn => "dc=aegee,dc=org",
+  attributes => [
+      "dc: aegee",
+      "description: AEGEE rocks!",
+      "objectClass: dcObject",
+      "objectClass: organization",
+      "o: AEGEE-Europe",
+    ],
+  unique_attributes => ["o","dc","description"],
+  require => Exec['import ldif files'],
+  ensure => present,
+  auth_opts => ["-xD", "cn=admin,dc=aegee,dc=org", "-w", "aegee"],
+}
+
 include ldap, phpldapadmin
