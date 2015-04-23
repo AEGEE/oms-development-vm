@@ -1,9 +1,8 @@
 #!/bin/sh
 
-#/usr/bin/ldapmodify -Q -Y EXTERNAL -H ldapi:/// -f /var/opt/aegee/1-log.ldif
+/usr/bin/ldapmodify -Q -Y EXTERNAL -H ldapi:/// -f /var/opt/aegee/1-log.ldif -c
 
-#/usr/bin/ldapmodify -Q -Y EXTERNAL -H ldapi:/// -f /var/opt/aegee/2-indices.ldif
+/usr/bin/ldapmodify -Q -Y EXTERNAL -H ldapi:/// -f /var/opt/aegee/2-indices.ldif -c
 
-
-##This is commented because first you add the schema
-##ldapadd -x -D 'cn=admin,dc=aegee,dc=org' -w admin -f structure.ldif
+# Nop to have clean exit code
+:
