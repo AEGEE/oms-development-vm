@@ -55,19 +55,19 @@ class { 'phpldapadmin':
   ldap_bind_id   => 'cn=admin,dc=aegee,dc=org',
   ldap_bind_pass => 'aegee', # TODO: not sure what this means
   require        => Openldap::Server::Database['dc=aegee,dc=org'],
-}
+}->
 
 # Random modification with ldapdn to test the module
-#ldapdn{"random modification to test ldapdn":
-#  dn => "dc=aegee,dc=org",
-#  attributes => [
-#      "dc: aegee",
-#      "description: AEGEE rocks!",
-#      "objectClass: dcObject",
-#      "objectClass: organization",
-#      "o: AEGEE-Europe",
-#    ],
-#  unique_attributes => ["o","dc","description"],
-#  require => Openldap::Server::Database['dc=aegee,dc=org'],
-#  ensure => present,
-#}
+ldapdn{"random modification to test ldapdn":
+  dn => "dc=aegee,dc=org",
+  attributes => [
+      "dc: aegee",
+      "description: AEGEE is the largest multidisciplinary student association in Europe",
+      "objectClass: dcObject",
+      "objectClass: organization",
+      "o: AEGEE-Europe",
+    ],
+  unique_attributes => ["o","dc","description"],
+  require => Openldap::Server::Database['dc=aegee,dc=org'],
+  ensure => present,
+}

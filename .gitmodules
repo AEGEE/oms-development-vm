@@ -7,9 +7,6 @@
 [submodule "puppet/modules/ldapdn"]
 	path = puppet/modules/ldapdn
 	url = https://github.com/gtmtechltd/puppet_ldapdn.git
-[submodule "puppet/modules/ldap"]
-	path = puppet/modules/ldap
-	url = https://github.com/camptocamp/puppet-openldap.git
 [submodule "puppet/modules/openldap"]
 	path = puppet/modules/openldap
 	url = https://github.com/camptocamp/puppet-openldap.git
