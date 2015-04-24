@@ -15,17 +15,27 @@ exec { "import log + indices":
   require => [ File['/var/opt/aegee'],
                Openldap::Server::Database['dc=aegee,dc=org'],
               ],
+  before => Exec['translate aegee schema'],
+}
+exec { "translate aegee schema":
+  command => '/var/opt/aegee/translate-ldif.sh',
+  user    => "vagrant",
+  require => [ File['/var/opt/aegee'],
+               Openldap::Server::Database['dc=aegee,dc=org'],
+              ],
+#  before => Exec['import schemas'],
 }
 exec { "import schemas":
   command => '/var/opt/aegee/import-schema.sh',
   user    => "root",
   require => [ File['/var/opt/aegee'],
                Openldap::Server::Database['dc=aegee,dc=org'],
+               Exec['translate aegee schema']
               ],
 }
 exec { "import ldif structure":
   command => '/var/opt/aegee/import-structure.sh',
-  user    => "root",
+  user    => "vagrant",
   require => Exec['import schemas'],
 }
 
@@ -34,6 +44,7 @@ class { 'openldap::server': }
 openldap::server::database { 'dc=aegee,dc=org':
   rootdn => 'cn=admin,dc=aegee,dc=org',
   rootpw => 'aegee',
+  backend => hdb,
   ensure => present,
 }
 
@@ -47,16 +58,16 @@ class { 'phpldapadmin':
 }
 
 # Random modification with ldapdn to test the module
-ldapdn{"random modification to test ldapdn":
-  dn => "dc=aegee,dc=org",
-  attributes => [
-      "dc: aegee",
-      "description: AEGEE rocks!",
-      "objectClass: dcObject",
-      "objectClass: organization",
-      "o: AEGEE-Europe",
-    ],
-  unique_attributes => ["o","dc","description"],
-  require => Openldap::Server::Database['dc=aegee,dc=org'],
-  ensure => present,
-}
+#ldapdn{"random modification to test ldapdn":
+#  dn => "dc=aegee,dc=org",
+#  attributes => [
+#      "dc: aegee",
+#      "description: AEGEE rocks!",
+#      "objectClass: dcObject",
+#      "objectClass: organization",
+#      "o: AEGEE-Europe",
+#    ],
+#  unique_attributes => ["o","dc","description"],
+#  require => Openldap::Server::Database['dc=aegee,dc=org'],
+#  ensure => present,
+#}
