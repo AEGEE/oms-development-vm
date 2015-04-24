@@ -32,13 +32,13 @@
 # this is an ENTRY sequence and is preceded by a BLANK line
 
 #I thought puppet provisioner already setting it, but not really. This has to be here
-dn: dc=aegee,dc=org
-dc: aegee
-description: AEGEE is the largest multidisciplinary student association
- in Europe
-objectClass: dcObject
-objectClass: organization
-o: AEGEE-Europe
+#dn: dc=aegee,dc=org
+#dc: aegee
+#description: AEGEE is the largest multidisciplinary student association
+# in Europe
+#objectClass: dcObject
+#objectClass: organization
+#o: AEGEE-Europe
 
 ## FIRST Level hierarchy - people & antennae
 ## uses mixed upper and lower case for objectclass
