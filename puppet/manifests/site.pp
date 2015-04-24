@@ -1,13 +1,3 @@
-# Add aegee schema such that it can be included in slapd.conf
-file { '/etc/ldap/schema/aegee.schema':
-  ensure => file,
-  mode   => 644,
-  owner  => 'root',
-  group  => 'root',
-  source => 'puppet:///modules/aegee_db_files/aegee.schema',
-  before => Class['ldap::server::master'],
-}
-
 # Copy all DB files to node
 file { "/var/opt/aegee":
   ensure => "directory",
@@ -19,41 +9,44 @@ file { "/var/opt/aegee":
 }
 
 # Run ldapadd to import some LDIF files
-#fabrizio's try (first does not work, second does)
-exec { "import ldif files":
+exec { "import log + indices":
   command => '/var/opt/aegee/import-log-indices.sh',
   user    => "root",
   require => [ File['/var/opt/aegee'],
-               Class['ldap::server::master'],
+               Openldap::Server::Database['dc=aegee,dc=org'],
+              ],
+}
+exec { "import schemas":
+  command => '/var/opt/aegee/import-schema.sh',
+  user    => "root",
+  require => [ File['/var/opt/aegee'],
+               Openldap::Server::Database['dc=aegee,dc=org'],
               ],
 }
 exec { "import ldif structure":
   command => '/var/opt/aegee/import-structure.sh',
   user    => "root",
-  require => [ Exec['import ldif files'],
-              ],
+  require => Exec['import schemas'],
 }
 
-
-class { 'ldap::server::master':
-  suffix      => 'dc=aegee,dc=org',
-  rootpw      => '{SSHA}o55pAdS3VSTvfd1RPSIEnHM2MvBlQdOt',
-  schema_inc  => [ 'aegee' ],
+# Configure LDAP server
+class { 'openldap::server': }
+openldap::server::database { 'dc=aegee,dc=org':
+  rootdn => 'cn=admin,dc=aegee,dc=org',
+  rootpw => 'aegee',
+  ensure => present,
 }
 
-class { 'ldap::client':
-  uri  => 'ldap://localhost',
-  base => 'dc=aegee,dc=org'
-}
-
+# Configure phpLDAPadmin (only for development)
 class { 'phpldapadmin':
   ldap_host      => 'localhost',
   ldap_suffix    => 'dc=aegee,dc=org',
   ldap_bind_id   => 'cn=admin,dc=aegee,dc=org',
   ldap_bind_pass => 'aegee', # TODO: not sure what this means
-  require        => Class['ldap::server::master'],
+  require        => Openldap::Server::Database['dc=aegee,dc=org'],
 }
 
+# Random modification with ldapdn to test the module
 ldapdn{"random modification to test ldapdn":
   dn => "dc=aegee,dc=org",
   attributes => [
@@ -64,9 +57,6 @@ ldapdn{"random modification to test ldapdn":
       "o: AEGEE-Europe",
     ],
   unique_attributes => ["o","dc","description"],
-  require => Exec['import ldif files'],
+  require => Openldap::Server::Database['dc=aegee,dc=org'],
   ensure => present,
-  auth_opts => ["-xD", "cn=admin,dc=aegee,dc=org", "-w", "aegee"],
 }
-
-include ldap, phpldapadmin
