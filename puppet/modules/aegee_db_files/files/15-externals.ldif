@@ -1,0 +1,32 @@
+
+dn: bodyCode=ACA,ou=groups,dc=aegee,dc=org
+objectClass: aegeeBodyFab
+bodyCode: ACA
+bodyNameAscii: Academy
+mail: aca@aegeee
+netcom: mayri
+o: AUDIT
+bodyCategory: External
+
+
+dn: bodyCode=GOL,ou=groups,dc=aegee,dc=org
+objectClass: aegeeBodyFab
+bodyCode: GOL
+bodyNameAscii: gold
+mail: gold@aegeee
+netcom: mayrio
+o: net
+o: pino
+bodyCategory: External
+
+
+dn: bodyCode=ANC,ou=groups,dc=aegee,dc=org
+objectClass: aegeeBodyFab
+bodyCode: ANC
+bodyNameAscii: anciens
+mail: anciens@aegeee
+netcom: mayrio
+o: net
+o: pino
+bodyCategory: External
+

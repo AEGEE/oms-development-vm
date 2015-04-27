@@ -23,73 +23,74 @@ birthDate: 2015-04-14
 
 #MEMBERSHIPS
 dn: bodyCode=LOU,uid=gianluigi.bombatomica,ou=people,dc=aegee,dc=org
-objectClass: top
-objectClass: organization
-objectClass: aegeeBodyFab
+objectClass: aegeePersonMembership
 bodyCode: LOU
 bodyNameAscii: Louvain-la-neuve
 mail: levne@leuven.org
 netcom: ana.potocnik
 o: coddio
+memberSinceDate: 20/5/2013
+memberUntilDate: 20/5/2013
 
 dn: bodyCode=LOU,uid=fabrizio.bellicano,ou=people,dc=aegee,dc=org
-objectClass: top
-objectClass: aegeeBodyFab
+objectClass: aegeePersonMembership
 bodyCode: LOU
 bodyNameAscii: Louvain-la-neuve
 mail: leuven@leuven
 netcom: ana
 o: diopo
+memberSinceDate: 20/5/2013
+memberUntilDate: 20/5/2013
 
 dn: bodyCode=LOU,uid=pino.bombatomica,ou=people,dc=aegee,dc=org
-objectClass: aegeeBodyFab
+objectClass: aegeePersonMembership
 bodyCode: LOU
 bodyNameAscii: Louvain-la-neuve
 mail: cacca@cacca.ca
 netcom: pino.bombatomica
 o: rcodio
+memberSinceDate: 20/5/2013
+memberUntilDate: 20/5/2013
 
 dn: bodyCode=ITC,uid=gianluigi.bombatomica,ou=people,dc=aegee,dc=org
-objectClass: top
-objectClass: organization
-objectClass: aegeeBodyFab
+objectClass: aegeePersonMembership
 bodyCode: ITC
 bodyNameAscii: it commi
 mail: itc@aegee
 netcom: bamberg
 o: napolerg
+memberSinceDate: 20/5/2013
+memberUntilDate: 20/5/2013
 
 dn: bodyCode=PRC,uid=gianluigi.bombatomica,ou=people,dc=aegee,dc=org
-objectClass: top
-objectClass: organization
-objectClass: aegeeBodyFab
+objectClass: aegeePersonMembership
 bodyCode: PRC
 bodyNameAscii: publicrel
 mail: prc@aegee
 netcom: bamberg
 o: coddio
+memberSinceDate: 20/5/2013
+memberUntilDate: 20/5/2013
 
 #GROUPS
 dn: bodyCode=H4Y,ou=groups,dc=aegee,dc=org
-objectClass: top
-objectClass: organization
 objectClass: aegeeBodyFab
 bodyCode: H4Y
 bodyNameAscii: health
 mail: health@aegeee
 netcom: mayri
 o: rcodio
+bodyCategory: Group
 
 #LOCAL GROUPS
 dn: bodyCode=BOARD,bodyCode=LOU,ou=antennae,dc=aegee,dc=org
-objectClass: top
-objectClass: organization
 objectClass: aegeeBodyFab
 bodyCode: BOARD
 bodyNameAscii: boardlouven
 mail: board@aegee
 netcom: tom
 o: board
+bodyCategory: LocalGroup
 
 #MEMBERSHIPS IN LOCAL GROUPS
 dn: uid=fabrizio.bellicano,bodyCode=BOARD,bodyCode=LOU,ou=antennae,dc=aegee,

@@ -16,6 +16,9 @@ Vagrant.configure(2) do |config|
   #   vb.memory = "1024"
   # end
 
+  #served folder
+  config.vm.synced_folder "serve", "/var/www/html"
+
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = 'puppet/manifests'
     puppet.manifest_file = 'site.pp'

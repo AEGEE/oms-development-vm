@@ -6,6 +6,7 @@
 /usr/bin/ldapadd -x -D "cn=admin,dc=aegee,dc=org" -w aegee -f /var/opt/aegee/12-users.ldif -c 
 /usr/bin/ldapadd -x -D "cn=admin,dc=aegee,dc=org" -w aegee -f /var/opt/aegee/13-committees.ldif -c 
 /usr/bin/ldapadd -x -D "cn=admin,dc=aegee,dc=org" -w aegee -f /var/opt/aegee/14-commissions.ldif -c 
+/usr/bin/ldapadd -x -D "cn=admin,dc=aegee,dc=org" -w aegee -f /var/opt/aegee/15-externals.ldif -c 
 
 /usr/bin/ldapadd -x -D "cn=admin,dc=aegee,dc=org" -w aegee -f /var/opt/aegee/30-experimental.ldif -c 
 

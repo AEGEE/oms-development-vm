@@ -6,6 +6,7 @@ bodycode: CRN
 bodynameascii: A Coruna
 mail: a coruna@aegee.org
 netcom: ana.potocnik
+bodyCategory: Local
 bodystatus: A
 o: porcodio
 
@@ -15,6 +16,7 @@ bodycode: AAC
 bodynameascii: Aachen
 mail: aachen@aegee.org
 netcom: ana.potocnik
+bodyCategory: Local
 bodystatus: A
 o: porcodio
 
@@ -24,6 +26,7 @@ bodycode: ADA
 bodynameascii: Adana
 mail: adana@aegee.org
 netcom: ana.potocnik
+bodyCategory: Local
 bodystatus: A
 o: porcodio
 
@@ -33,6 +36,7 @@ bodycode: LOU
 bodynameascii: Louvain-la-Neuve
 mail: louvain-la-neuve@aegee.org
 netcom: ana.potocnik
+bodyCategory: Local
 bodystatus: CA
 o: porcodio
 
@@ -42,6 +46,7 @@ bodycode: LUG
 bodynameascii: Lugano
 mail: lugano@aegee.org
 netcom: ana.potocnik
+bodyCategory: Local
 bodystatus: C
 o: porcodio
 
@@ -51,6 +56,7 @@ bodycode: LUX
 bodynameascii: Luxembourg
 mail: luxembourg@aegee.org
 netcom: ana.potocnik
+bodyCategory: Local
 bodystatus: C
 o: porcodio
 
@@ -60,6 +66,7 @@ bodycode: MNC
 bodynameascii: Manchester
 mail: manchester@aegee.org
 netcom: ana.potocnik
+bodyCategory: Local
 bodystatus: C
 o: porcodio
 
@@ -69,5 +76,6 @@ bodycode: NEW
 bodynameascii: Newcastle-upon-Tyne
 mail: newcastle-upon-tyne@aegee.org
 netcom: ana.potocnik
+bodyCategory: Local
 bodystatus: C
 o: porcodio

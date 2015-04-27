@@ -1,22 +1,21 @@
 ## SECOND Level hierarchy (committees)
 
 dn: bodyCode=ITC,ou=committees,dc=aegee,dc=org
-objectClass: top
-objectClass: organization
 objectClass: aegeeBodyFab
 bodyCode: ITC
 bodyNameAscii: it commi
 mail: itc@aegee
 netcom: bamberg
 o: napolerg
+bodyCategory: Committee
 
 dn: bodyCode=PRC,ou=committees,dc=aegee,dc=org
-objectClass: top
-objectClass: organization
 objectClass: aegeeBodyFab
 bodyCode: PRC
 bodyNameAscii: publicrel
 mail: prc@aegee
 netcom: bamberg
 o: coddio
+bodyCategory: Committee
+
 

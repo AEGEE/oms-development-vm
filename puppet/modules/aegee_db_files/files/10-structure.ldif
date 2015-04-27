@@ -49,17 +49,16 @@ description: All antennae in organisation
 
 dn: ou=committees, dc=aegee,dc=org
 objectclass: organizationalunit
-ou: bodies
+ou: committees
 description: All committees in organisation
 
 dn: ou=groups, dc=aegee,dc=org
 objectclass: organizationalunit
-ou: bodies
+ou: groups
 description: All groups (WG) and projects in organisation
 
 dn: ou=commissions,dc=aegee,dc=org
 objectClass: organizationalUnit
-ou: bodies
 ou: commissions
 description: All commissions in organisation
 
