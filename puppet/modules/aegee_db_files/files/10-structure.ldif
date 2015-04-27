@@ -31,14 +31,7 @@
 ## have a STRUCTURAL objectclass (organization in this case)
 # this is an ENTRY sequence and is preceded by a BLANK line
 
-#I thought puppet provisioner already setting it, but not really. This has to be here
-#dn: dc=aegee,dc=org
-#dc: aegee
-#description: AEGEE is the largest multidisciplinary student association
-# in Europe
-#objectClass: dcObject
-#objectClass: organization
-#o: AEGEE-Europe
+#Note: top level (dc=aegee,dc=org) is already set by ldapdn
 
 ## FIRST Level hierarchy - people & antennae
 ## uses mixed upper and lower case for objectclass
@@ -63,4 +56,11 @@ dn: ou=groups, dc=aegee,dc=org
 objectclass: organizationalunit
 ou: bodies
 description: All groups (WG) and projects in organisation
+
+dn: ou=commissions,dc=aegee,dc=org
+objectClass: organizationalUnit
+ou: bodies
+ou: commissions
+description: All commissions in organisation
+
 

@@ -1,3 +1,4 @@
+
 attributetype ( 1.3.6.1.4.1.19881.1.1.1 
 	NAME ( 'csn' 'cardSerialNumber' ) 
 	DESC 'Membership number' 
@@ -359,18 +360,25 @@ attributetype ( 1.3.6.1.4.1.19881.1.4.10
 	SINGLE-VALUE 
  )
 
+attributetype ( 1.3.6.1.4.1.19881.1.4.6 
+	NAME 'tShirtSize' 
+	DESC 'The size of the T-Shirt' 
+	EQUALITY caseIgnoreMatch 
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 
+	SINGLE-VALUE 
+ )
 objectclass ( 1.3.6.1.4.1.19881.1.3.1 
 	NAME 'aegeePersonFab' 
-	DESC 'AEGEE person' 
+	DESC 'AEGEE person (uid=name,cn=people)' 
 	SUP person 
 	STRUCTURAL 
 	MUST ( givenName $ mail $ userPassword $ uid ) 
-	MAY ( csn $ gender $ jpegPhoto $ birthDate $ preferredLanguage $ fieldOfStudies $ changeLog ) 
+	MAY ( csn $ gender $ jpegPhoto $ birthDate $ preferredLanguage $ fieldOfStudies $ changeLog $ tShirtSize $ drink ) 
  )
 
 objectclass ( 1.3.6.1.4.1.19881.1.3.2 
 	NAME 'aegeeBodyFab' 
-	DESC 'AEGEE body' 
+	DESC 'AEGEE body (bodycode=X,cn=antennae/groups/commitees/commissions)' 
 	SUP organization 
 	STRUCTURAL 
 	MUST ( bodyCode $ netcom $ bodyNameAscii $ mail ) 
@@ -378,12 +386,12 @@ objectclass ( 1.3.6.1.4.1.19881.1.3.2
  )
 
 objectclass ( 1.3.6.1.4.1.19881.1.3.3 
-	NAME 'omsBody' 
-	DESC 'AEGEE OMS body' 
-	SUP top 
+	NAME 'aegeePersonMembership' 
+	DESC 'AEGEE membership of a person (bodycode=X,uid=name,cn=people)' 
+	SUP aegeeBodyFab 
 	STRUCTURAL 
-	MUST ( bodyCode $ bodyName $ bodyStatus $ bodyCategory $ bodyCategoryOrder $ mail $ lastBoardElectionDate $ foundedDate $ active ) 
-	MAY ( bodyNameAscii $ netcom $ labeledURI $ latitude $ longitude $ careOf $ street $ postalCode $ localityName $ c $ telephoneNumber $ fax $ sipNumber $ officeLocation $ officeHours $ socialMeetingLocation $ socialMeetingHours $ info $ changeLog ) 
+	MUST ( memberSinceDate $ memberUntilDate ) 
+	MAY ( labeledURI $ info $ changeLog $ title $ memberType $ studentType $ university $ bankAccount ) 
  )
 
 objectclass ( 1.3.6.1.4.1.19881.1.3.4 
@@ -400,7 +408,7 @@ objectclass ( 1.3.6.1.4.1.19881.1.3.5
 	DESC 'AEGEE OMS group' 
 	SUP top 
 	STRUCTURAL 
-	MUST ( cn ) 
+	MUST cn 
 	MAY ( memberUid $ changeLog ) 
  )
 
@@ -412,4 +420,3 @@ objectclass ( 1.3.6.1.4.1.19881.1.3.6
 	MUST ( bodyCode $ givenName ) 
 	MAY ( title $ careOf $ street $ postalCode $ localityName $ c $ telephoneNumber $ mobileNumber $ fax $ homeCareOf $ homeStreet $ homePostalCode $ homeLocalityName $ homeCountryName $ homePhone $ homeFax $ sipNumber $ mail $ memberSinceDate $ memberUntilDate $ memberType $ jpegPhoto $ iban $ bic $ bankaccount $ messenger $ labeledURI $ studentType $ university $ info $ changeLog ) 
  )
-

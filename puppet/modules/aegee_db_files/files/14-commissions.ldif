@@ -1,0 +1,22 @@
+
+dn: bodyCode=AUD,ou=commissions,dc=aegee,dc=org
+objectClass: aegeeBodyFab
+objectClass: organization
+objectClass: top
+bodyCode: AUD
+bodyNameAscii: Audit commission
+mail: audit@aegeee
+netcom: mayri
+o: AUDIT
+
+dn: bodyCode=NET,ou=commissions,dc=aegee,dc=org
+objectClass: aegeeBodyFab
+objectClass: organization
+objectClass: top
+bodyCode: NET
+bodyNameAscii: Network commission
+mail: audit@aegeee
+netcom: mayrio
+o: net
+o: pino
+
