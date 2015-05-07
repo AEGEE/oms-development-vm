@@ -27,20 +27,35 @@ if ($ldapconn) {
 //    echo $result?"YEEAH":"nope, did not work";
 //    echo "<br><br>";
 
-    $search= "ou=people,dc=aegee,dc=org";
+    $searchBase= "ou=people,dc=aegee,dc=org";
     $filter="(uid=".$profile_requested.")";
-    $justthese = array("cn", "mail", "jpegPhoto", "bodyCode", "gender", "birthDate", "tShirtSize", "fieldOfStudies" );
-    
-    $searchres= ldap_search($ldapconn, $search, $filter, $justthese );
-    $bodycode = ldap_get_entries($ldapconn, $searchres);
+    $attributes = array("cn", "mail", "XjpegPhoto", "gender", "birthDate",
+                         "tShirtSize", "fieldOfStudies" );
 
-    $name = $bodycode[0]["cn"][0];
-    $mail = $bodycode[0]["mail"][0];
-    $photo = $bodycode[0]["jpegphoto"][0];
-    $gender = $bodycode[0]["gender"][0];
-    $birthdate = $bodycode[0]["birthdate"][0];
-    $studies = $bodycode[0]["fieldofstudies"][0];
-    $tshirt = $bodycode[0]["tshirtsize"][0];
+    $searchres= ldap_search($ldapconn, $searchBase, $filter, $attributes );
+    $profile_result = ldap_get_entries($ldapconn, $searchres);
+
+    $searchBaseMembership= $profile_result[0]["dn"]; //I save this to search the memberships (another query)
+
+    $name = $profile_result[0]["cn"][0];
+    $mail = $profile_result[0]["mail"][0];
+    $photo = $profile_result[0]["jpegphoto"][0];
+    $gender = $profile_result[0]["gender"][0];
+    $birthdate = $profile_result[0]["birthdate"][0];
+    $studies = $profile_result[0]["fieldofstudies"][0];
+    $tshirt = $profile_result[0]["tshirtsize"][0];
+
+    //new search: for the membership
+    $filter="(bodyCode=*)";
+    $attributes = array( "bodyCode", "memberSinceDate", "memberUntilDate", "changeLog", "memberType", "title" );
+
+    $searchres= ldap_search($ldapconn, $searchBaseMembership, $filter, $attributes );
+    $membership_result = ldap_get_entries($ldapconn, $searchres);
+
+    for($i=0;$i<$membership_result["count"];$i++)
+        for($k=0;$k<$membership_result[$i]["count"];$k++)
+            for($j=0;$j<$membership_result[$i][$membership_result[$i][$k]]["count"];$j++)
+            $membership[$i][$membership_result[$i][$k]][$j]= $membership_result[$i][$membership_result[$i][$k]][$j];
 
     ldap_close($ldapconn);
 
@@ -66,9 +81,46 @@ if ($ldapconn) {
 <?php
 
     echo "<pre>";
-    //print_r($bodycode);
+    //print_r($profile_result);
+    //print_r($membership_result);
+    //print_r($membership);
     echo "</pre>";
 
+//there is NO GUARANTEE that the changelog is already ordered (although technically it is)
+//so we check them anyway.
+function parse_changelog($the_array)
+{
+    //1 break (no need)
+    //2 order 
+    echo "<pre>";
+    //print_r($the_array);
+    echo "</pre>";
+    sort($the_array);
+    echo "<pre>";
+    //print_r($the_array);
+    echo "</pre>";
+
+$entries;
+    for($i=0;$i<count($the_array);$i++)
+    {
+        //$change= explode(": ", $the_array[$i]);
+        //$entries[$change[0]]= $change[1];
+
+        $entries[$i]= explode(", ", $the_array[$i]);
+    }
+
+    echo "<pre>";
+    //print_r($entries);
+    echo "</pre>";
+
+    
+    //3 format
+    foreach($entries as $entry)
+        echo $entry[0].": membership changed to ".explode("=", $entry[1])[1]."<br/>";
+
+    //4 return
+    echo "<br/>";
+}
 ?>
 
 <h1>Aborigeno Alogeno</h1>
@@ -86,9 +138,12 @@ if ($ldapconn) {
 
 <tr><td class="label">Class:</td><td> <?php echo $studies; ?></td></tr>
 
-<tr><td class="label">Tshirt:</td><td> <?php echo $tshirt; ?></td></tr>
+<tr><td class="label">Tshirt size:</td><td> <?php echo $tshirt; ?></td></tr>
 
-<tr><td class="label">Poteri:</td><td>Obice<br/>Cannone da 75mm<br/>Papersera</td></tr>
+<tr><td class="label">Memberships:</td> <td><?php foreach($membership as $memb){ 
+                                             echo $memb["membertype"][0], ((array_key_exists("title", $memb ))?" (".$memb["title"][0].") ":" "), "of ".$memb["bodycode"][0]." since ".$memb["membersincedate"][0]."<br/>";
+                                             if(array_key_exists ( "changelog" , $memb )) { parse_changelog($memb["changelog"]); }
+                                         } ?> </td></tr>
 
 <tr><td class="label">Forza:</td><td>72</td></tr>
 

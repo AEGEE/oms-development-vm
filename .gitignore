@@ -1,1 +1,3 @@
 .vagrant
+serve/index.html
+ignore/*

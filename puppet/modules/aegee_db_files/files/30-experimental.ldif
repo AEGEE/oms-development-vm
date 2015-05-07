@@ -26,6 +26,7 @@ dn: bodyCode=LOU,uid=gianluigi.bombatomica,ou=people,dc=aegee,dc=org
 objectClass: aegeePersonMembership
 bodyCode: LOU
 bodyNameAscii: Louvain-la-neuve
+bodyCategory: Local
 mail: levne@leuven.org
 netcom: ana.potocnik
 o: coddio
@@ -36,6 +37,7 @@ dn: bodyCode=LOU,uid=fabrizio.bellicano,ou=people,dc=aegee,dc=org
 objectClass: aegeePersonMembership
 bodyCode: LOU
 bodyNameAscii: Louvain-la-neuve
+bodyCategory: Local
 mail: leuven@leuven
 netcom: ana
 o: diopo
@@ -46,6 +48,7 @@ dn: bodyCode=LOU,uid=pino.bombatomica,ou=people,dc=aegee,dc=org
 objectClass: aegeePersonMembership
 bodyCode: LOU
 bodyNameAscii: Louvain-la-neuve
+bodyCategory: Local
 mail: cacca@cacca.ca
 netcom: pino.bombatomica
 o: rcodio
@@ -56,6 +59,7 @@ dn: bodyCode=ITC,uid=gianluigi.bombatomica,ou=people,dc=aegee,dc=org
 objectClass: aegeePersonMembership
 bodyCode: ITC
 bodyNameAscii: it commi
+bodyCategory: Local
 mail: itc@aegee
 netcom: bamberg
 o: napolerg
@@ -66,6 +70,7 @@ dn: bodyCode=PRC,uid=gianluigi.bombatomica,ou=people,dc=aegee,dc=org
 objectClass: aegeePersonMembership
 bodyCode: PRC
 bodyNameAscii: publicrel
+bodyCategory: Local
 mail: prc@aegee
 netcom: bamberg
 o: coddio
@@ -291,7 +296,6 @@ birthDate: 2015-04-14
 
 #TEST FOR GROUPOFURLS OBJECTCLASS
 dn: ou=testURLS,dc=aegee,dc=org
-objectClass: top
 objectClass: organizationalUnit
-ou: test
+ou: testURLS
 

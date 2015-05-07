@@ -40,10 +40,8 @@ attributetype ( 1.3.6.1.4.1.19881.1.1.5
 
 attributetype ( 1.3.6.1.4.1.19881.1.1.6 
 	NAME 'birthDate' 
-	DESC 'Birth date
-the (internal) format is according to ISO8601 YYYY-MM-DD
-to be formatted into DD/MM/YYYY from the application' 
-	EQUALITY caseIgnoreMatch 
+	DESC 'Birth date the (internal) format is according to ISO8601 YYYY-MM-DD to be formatted into DD/MM/YYYY from the application' 
+	EQUALITY caseExactIA5Match 
 	SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 
 	SINGLE-VALUE 
  )
@@ -143,20 +141,16 @@ attributetype ( 1.3.6.1.4.1.19881.1.1.18
 
 attributetype ( 1.3.6.1.4.1.19881.1.1.19 
 	NAME 'memberSinceDate' 
-	DESC 'Date since when person is member
-the (internal) format is according to ISO8601 YYYY-MM-DD
-to be formatted into DD/MM/YYYY from the application' 
-	EQUALITY caseIgnoreMatch 
+	DESC 'Date since when person is member the (internal) format is according to ISO8601 YYYY-MM-DD to be formatted into DD/MM/YYYY from the application' 
+	EQUALITY caseExactIA5Match
 	SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 
 	SINGLE-VALUE 
  )
 
 attributetype ( 1.3.6.1.4.1.19881.1.1.20 
 	NAME 'memberUntilDate' 
-	DESC 'Date until when person was member
-the (internal) format is according to ISO8601 YYYY-MM-DD
-to be formatted into DD/MM/YYYY from the application' 
-	EQUALITY caseIgnoreMatch 
+	DESC 'Date until when person was member the (internal) format is according to ISO8601 YYYY-MM-DD to be formatted into DD/MM/YYYY from the application' 
+	EQUALITY caseExactIA5Match
 	SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 
 	SINGLE-VALUE 
  )

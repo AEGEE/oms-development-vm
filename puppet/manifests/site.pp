@@ -57,17 +57,15 @@ class { 'phpldapadmin':
   require        => Openldap::Server::Database['dc=aegee,dc=org'],
 }->
 
-# Random modification with ldapdn to test the module
-ldapdn{"random modification to test ldapdn":
-  dn => "dc=aegee,dc=org",
-  attributes => [
-      "dc: aegee",
-      "description: AEGEE is the largest multidisciplinary student association in Europe",
-      "objectClass: dcObject",
-      "objectClass: organization",
-      "o: AEGEE-Europe",
-    ],
-  unique_attributes => ["o","dc","description"],
-  require => Openldap::Server::Database['dc=aegee,dc=org'],
+#Overlays
+#dynamic groups
+openldap::server::module { 'dynlist':
   ensure => present,
 }
+->
+
+openldap::server::overlay { 'dynlist on dc=aegee,dc=org':
+  ensure => present,
+}
+
+include phpldapadmin, aegee_db_files
