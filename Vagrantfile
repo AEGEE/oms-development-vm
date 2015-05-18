@@ -10,6 +10,9 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "aegee-virtual"
   config.vm.network "forwarded_port", guest: 80, host: 8888
   config.vm.network "forwarded_port", guest: 389, host: 4444
+  config.vm.network "forwarded_port", guest: 8080, host: 8800
+
+  config.vm.network :forwarded_port, guest: 22, host: 2222, host_ip: "0.0.0.0", id: "ssh", auto_correct: true
 
   # config.vm.provider "virtualbox" do |vb|
   #   # Customize the amount of memory on the VM:

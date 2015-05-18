@@ -5,63 +5,25 @@
 
 <?php
 
-$profile_requested = "fabrizio.bellicano"; //TODO: should be taken from $_POST, and not hardcoded
+include('./httpful.phar');
+ 
+// And you're ready to go!
+$uri = "192.168.7.187:8800/users/fabrizio.bellicano";
+$response = \Httpful\Request::get($uri)->send();
+ 
+echo "<pre>";
+    print_r($response);
+echo "</pre>";
 
-$ldapconn = ldap_connect("localhost")
-    or die("Could not connect to LDAP server.");
 
-if ($ldapconn) {
+$name = $response->body->cn;
+$mail = $response->body->mail;
+$photo = $response->body->jpegphoto;
+$gender = $response->body->gender;
+$birthdate = $response->body->birthdate;
+$studies = $response->body->fieldofstudies;
+$tshirt = $response->body->tshirtsize;
 
-	ldap_set_option($ldapconn, LDAP_OPT_PROTOCOL_VERSION, 3);
-    // binding to ldap server (work user)
-    $ldapbind = ldap_bind($ldapconn, "cn=admin, dc=aegee, dc=org", "aegee"); #TODO: add less privileged user able to add
-
-    // verify binding
-    if ($ldapbind) {
-        echo "LDAP bind successful...";
-    } else {
-        echo "LDAP bind failed...";
-    }
-    
-//    echo "<br><br>";
-//    echo $result?"YEEAH":"nope, did not work";
-//    echo "<br><br>";
-
-    $searchBase= "ou=people,dc=aegee,dc=org";
-    $filter="(uid=".$profile_requested.")";
-    $attributes = array("cn", "mail", "XjpegPhoto", "gender", "birthDate",
-                         "tShirtSize", "fieldOfStudies" );
-
-    $searchres= ldap_search($ldapconn, $searchBase, $filter, $attributes );
-    $profile_result = ldap_get_entries($ldapconn, $searchres);
-
-    $searchBaseMembership= $profile_result[0]["dn"]; //I save this to search the memberships (another query)
-
-    $name = $profile_result[0]["cn"][0];
-    $mail = $profile_result[0]["mail"][0];
-    $photo = $profile_result[0]["jpegphoto"][0];
-    $gender = $profile_result[0]["gender"][0];
-    $birthdate = $profile_result[0]["birthdate"][0];
-    $studies = $profile_result[0]["fieldofstudies"][0];
-    $tshirt = $profile_result[0]["tshirtsize"][0];
-
-    //new search: for the membership
-    $filter="(bodyCode=*)";
-    $attributes = array( "bodyCode", "memberSinceDate", "memberUntilDate", "changeLog", "memberType", "title" );
-
-    $searchres= ldap_search($ldapconn, $searchBaseMembership, $filter, $attributes );
-    $membership_result = ldap_get_entries($ldapconn, $searchres);
-
-    for($i=0;$i<$membership_result["count"];$i++)
-        for($k=0;$k<$membership_result[$i]["count"];$k++)
-            for($j=0;$j<$membership_result[$i][$membership_result[$i][$k]]["count"];$j++)
-            $membership[$i][$membership_result[$i][$k]][$j]= $membership_result[$i][$membership_result[$i][$k]][$j];
-
-    ldap_close($ldapconn);
-
-} else {
-    echo "Unable to connect to LDAP server";
-}
 
 ?> 
 
@@ -79,6 +41,8 @@ if ($ldapconn) {
 <td id="rhs">
 
 <?php
+
+//todo: handle memberships
 
     echo "<pre>";
     //print_r($profile_result);
