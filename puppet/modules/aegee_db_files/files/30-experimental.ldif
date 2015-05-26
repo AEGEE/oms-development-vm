@@ -1,79 +1,79 @@
 #This contains data that gives some membership and stuff
 
 ##OTHER NAMES
-dn: uid=gianluigi.bombatomica,ou=people,dc=aegee,dc=org
+dn: uid=somebody.responsible,ou=people,dc=aegee,dc=org
 objectClass: aegeePersonFab
-cn: gianluigi bombatomica
-givenName: Gianluigi
-mail: giangi@bombatomi.ca
-sn: Bombatomica
-uid: gianluigi.bombatomica
+cn: somebody responsible
+givenName: somebody
+mail: somebody@aegee.org
+sn: responsible
+uid: somebody.responsible
 userPassword:: amhn
 birthDate: 2015-04-14
 
-dn: uid=pino.bombatomica,ou=people,dc=aegee,dc=org
+dn: uid=aegee.dude,ou=people,dc=aegee,dc=org
 objectClass: aegeePersonFab
-cn: pino bombatomica
-givenName: Pino
-mail: giangi@bombatomi.ca
-sn: Bombatomica
-uid: pino.bombatomica
+cn: aegee dude
+givenName: aegee
+mail: dude@aegee.org
+sn: dude
+uid: aegee.dude
 userPassword:: cGlubw==
 birthDate: 2015-04-14
 
 #MEMBERSHIPS
-dn: bodyCode=LOU,uid=gianluigi.bombatomica,ou=people,dc=aegee,dc=org
+dn: bodyCode=LOU,uid=somebody.responsible,ou=people,dc=aegee,dc=org
 objectClass: aegeePersonMembership
 bodyCode: LOU
 bodyNameAscii: Louvain-la-neuve
 bodyCategory: Local
-mail: levne@leuven.org
-netcom: ana.potocnik
-o: coddio
+mail: louvain@louvain
+netcom: somebody.responsible
+o: something
 memberSinceDate: 20/5/2013
-memberUntilDate: 20/5/2013
+memberUntilDate: 20/5/2014
 
 dn: bodyCode=LOU,uid=fabrizio.bellicano,ou=people,dc=aegee,dc=org
 objectClass: aegeePersonMembership
 bodyCode: LOU
 bodyNameAscii: Louvain-la-neuve
 bodyCategory: Local
-mail: leuven@leuven
-netcom: ana
-o: diopo
+mail: louvain@louvain
+netcom: somebody.responsible
+o: something
 memberSinceDate: 20/5/2013
-memberUntilDate: 20/5/2013
+memberUntilDate: 20/5/2014
 
-dn: bodyCode=LOU,uid=pino.bombatomica,ou=people,dc=aegee,dc=org
+dn: bodyCode=LOU,uid=aegee.dude,ou=people,dc=aegee,dc=org
 objectClass: aegeePersonMembership
 bodyCode: LOU
 bodyNameAscii: Louvain-la-neuve
 bodyCategory: Local
-mail: cacca@cacca.ca
-netcom: pino.bombatomica
-o: rcodio
+mail: louvain@louvain
+netcom: somebody.responsible
+o: something
 memberSinceDate: 20/5/2013
 memberUntilDate: 20/5/2013
 
-dn: bodyCode=ITC,uid=gianluigi.bombatomica,ou=people,dc=aegee,dc=org
+dn: bodyCode=ITC,uid=somebody.responsible,ou=people,dc=aegee,dc=org
 objectClass: aegeePersonMembership
 bodyCode: ITC
 bodyNameAscii: it commi
 bodyCategory: Local
-mail: itc@aegee
-netcom: bamberg
-o: napolerg
+mail: itc@aegee.org
+netcom: somebody.responsible
+o: something
 memberSinceDate: 20/5/2013
 memberUntilDate: 20/5/2013
 
-dn: bodyCode=PRC,uid=gianluigi.bombatomica,ou=people,dc=aegee,dc=org
+dn: bodyCode=PRC,uid=somebody.responsible,ou=people,dc=aegee,dc=org
 objectClass: aegeePersonMembership
 bodyCode: PRC
-bodyNameAscii: publicrel
+bodyNameAscii: Public Relations Committee
 bodyCategory: Local
 mail: prc@aegee
-netcom: bamberg
-o: coddio
+netcom: somebody.responsible
+o: something
 memberSinceDate: 20/5/2013
 memberUntilDate: 20/5/2013
 
@@ -81,19 +81,19 @@ memberUntilDate: 20/5/2013
 dn: bodyCode=H4Y,ou=groups,dc=aegee,dc=org
 objectClass: aegeeBodyFab
 bodyCode: H4Y
-bodyNameAscii: health
-mail: health@aegeee
-netcom: mayri
-o: rcodio
+bodyNameAscii: Health 4 youth
+mail: health@aegee.org
+netcom: somebody.responsible
+o: something
 bodyCategory: Group
 
 #LOCAL GROUPS
 dn: bodyCode=BOARD,bodyCode=LOU,ou=antennae,dc=aegee,dc=org
 objectClass: aegeeBodyFab
 bodyCode: BOARD
-bodyNameAscii: boardlouven
-mail: board@aegee
-netcom: tom
+bodyNameAscii: Board Louvain-La-Neuve
+mail: louvain+board@aegee.org
+netcom: somebody.responsible
 o: board
 bodyCategory: LocalGroup
 
@@ -104,8 +104,6 @@ objectClass: aegeePersonFab
 cn: Fabrizio Bellicano
 givenName: fabrizio
 mail: j.smith@example.com
-mail: jsmith@example.com
-mail: john.smith@example.com
 sn: bellicano
 uid: fabrizio.bellicano
 userPassword:: ZkJlbGxJ
@@ -282,14 +280,14 @@ jpegPhoto:: /9j/4gIcSUNDX1BST0ZJTEUAAQEAAAIMbGNtcwIQAABtbnRyUkdCIFhZWiAH3AAB
  2qSgOKKADy7cvaaASawFKEnDgzxEojtVNtyFsYtwCnwKZWwAW2aL5B3kRLVCS0SR6lwk27hRNgC
  BeYYgl4EaVs7b/wCZ/9k=
 
-dn: uid=gianluigi.bombatomica,bodyCode=BOARD,bodyCode=LOU,ou=antennae,dc=aeg
+dn: uid=somebody.responsible,bodyCode=BOARD,bodyCode=LOU,ou=antennae,dc=aeg
  ee,dc=org
 objectClass: aegeePersonFab
-cn: gianluigi bombatomica
-givenName: Gianluigi
-mail: giangi@bombatomi.ca
-sn: Bombatomica
-uid: gianluigi.bombatomica
+cn: somebody responsible
+givenName: somebody
+mail: somebody@aegee.org
+sn: responsible
+uid: somebody.responsible
 userPassword:: amhn
 birthDate: 2015-04-14
 

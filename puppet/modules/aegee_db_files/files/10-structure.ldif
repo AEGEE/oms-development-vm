@@ -6,7 +6,7 @@
 ## (notation loose):
 ## -------------------------------------
 ## BASE DN                       dc aegee, dc org
-## ORGANISATIONAL UNITS          ou people/antennae/commitees/groups (,dc aegee, dc org)
+## ORGANISATIONAL UNITS          ou people/antennae/committees/groups (,dc aegee, dc org)
 ## PERSON                        uid fabrizio.bellicano ou people (,dc aegee, dc org)  
 ## ANTENNA                       uid ATH ou antennae (,dc aegee, dc org)   
 ## COMMITTEE                     uid PRC ou committees (,dc aegee, dc org) 

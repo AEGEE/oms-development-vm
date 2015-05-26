@@ -4,11 +4,11 @@ dn: bodycode=CRN,ou=antennae,dc=aegee,dc=org
 objectclass: aegeeBodyFab
 bodycode: CRN
 bodynameascii: A Coruna
-mail: a coruna@aegee.org
+mail: acoruna@aegee.org
 netcom: ana.potocnik
 bodyCategory: Local
 bodystatus: A
-o: porcodio
+o: something
 
 dn: bodycode=AAC,ou=antennae,dc=aegee,dc=org
 objectclass: aegeeBodyFab
@@ -18,7 +18,7 @@ mail: aachen@aegee.org
 netcom: ana.potocnik
 bodyCategory: Local
 bodystatus: A
-o: porcodio
+o: something
 
 dn: bodycode=ADA,ou=antennae,dc=aegee,dc=org
 objectclass: aegeeBodyFab
@@ -28,7 +28,7 @@ mail: adana@aegee.org
 netcom: ana.potocnik
 bodyCategory: Local
 bodystatus: A
-o: porcodio
+o: something
 
 dn: bodycode=LOU,ou=antennae,dc=aegee,dc=org
 objectclass: aegeeBodyFab
@@ -38,7 +38,7 @@ mail: louvain-la-neuve@aegee.org
 netcom: ana.potocnik
 bodyCategory: Local
 bodystatus: CA
-o: porcodio
+o: something
 
 dn: bodycode=LUG,ou=antennae,dc=aegee,dc=org
 objectclass: aegeeBodyFab
@@ -48,7 +48,7 @@ mail: lugano@aegee.org
 netcom: ana.potocnik
 bodyCategory: Local
 bodystatus: C
-o: porcodio
+o: something
 
 dn: bodycode=LUX,ou=antennae,dc=aegee,dc=org
 objectclass: aegeeBodyFab
@@ -58,7 +58,7 @@ mail: luxembourg@aegee.org
 netcom: ana.potocnik
 bodyCategory: Local
 bodystatus: C
-o: porcodio
+o: something
 
 dn: bodycode=MNC,ou=antennae,dc=aegee,dc=org
 objectclass: aegeeBodyFab
@@ -68,7 +68,7 @@ mail: manchester@aegee.org
 netcom: ana.potocnik
 bodyCategory: Local
 bodystatus: C
-o: porcodio
+o: something
 
 dn: bodycode=NEW,ou=antennae,dc=aegee,dc=org
 objectclass: aegeeBodyFab
@@ -78,4 +78,4 @@ mail: newcastle-upon-tyne@aegee.org
 netcom: ana.potocnik
 bodyCategory: Local
 bodystatus: C
-o: porcodio
+o: something

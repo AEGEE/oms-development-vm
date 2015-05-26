@@ -3,19 +3,39 @@
 dn: bodyCode=ITC,ou=committees,dc=aegee,dc=org
 objectClass: aegeeBodyFab
 bodyCode: ITC
-bodyNameAscii: it commi
-mail: itc@aegee
-netcom: bamberg
-o: napolerg
+bodyNameAscii: IT Committee
+mail: itc@aegee.org
+netcom: somebody.responsible
+o: something
 bodyCategory: Committee
 
 dn: bodyCode=PRC,ou=committees,dc=aegee,dc=org
 objectClass: aegeeBodyFab
 bodyCode: PRC
-bodyNameAscii: publicrel
-mail: prc@aegee
-netcom: bamberg
-o: coddio
+bodyNameAscii: Public Relations Committee
+mail: prc@aegee.org
+netcom: somebody.responsible
+o: something
 bodyCategory: Committee
 
+dn: bodyCode=CHA,ou=committees,dc=aegee,dc=org
+objectClass: aegeeBodyFab
+bodyCode: CHA
+bodyNameAscii: Chair team
+mail: chair@aegee.org
+netcom: somebody.responsible
+o: something
+bodyCategory: Committee
+
+dn: bodyCode=SUC,ou=committees,dc=aegee,dc=org
+objectClass: aegeeBodyFab
+bodyCode: SUC
+bodyNameAscii: Summer University Coordination Team
+mail: suct@aegee.org
+netcom: somebody.responsible
+o: something
+bodyCategory: Committee
+
+
+#Missing: ACT, CRC, HRC, EQUAC
 

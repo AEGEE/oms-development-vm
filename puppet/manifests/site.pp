@@ -53,7 +53,7 @@ class { 'phpldapadmin':
   ldap_host      => 'localhost',
   ldap_suffix    => 'dc=aegee,dc=org',
   ldap_bind_id   => 'cn=admin,dc=aegee,dc=org',
-  ldap_bind_pass => 'aegee', # TODO: not sure what this means
+  ldap_bind_pass => 'aegee', 
   require        => Openldap::Server::Database['dc=aegee,dc=org'],
 }->
 
@@ -64,6 +64,7 @@ openldap::server::module { 'dynlist':
 }
 ->
 
+##TODO: extend it to have custom attribute for dynlist
 openldap::server::overlay { 'dynlist on dc=aegee,dc=org':
   ensure => present,
 }

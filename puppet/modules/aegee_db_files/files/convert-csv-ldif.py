@@ -21,7 +21,7 @@ for line in lines:
 	mail: %s@aegee.org
 	netcom: ana.potocnik
 	bodystatus: %s
-	o: porcodio
+	o: something
 	""" % (bodycode, bodycode, bodynameascii, bodynameascii.lower(), bodystatus)
 
 	with open('antennae.ldif','a') as f: f.write(blob) 

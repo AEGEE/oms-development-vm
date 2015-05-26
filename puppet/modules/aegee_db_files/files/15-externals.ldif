@@ -2,31 +2,30 @@
 dn: bodyCode=ACA,ou=groups,dc=aegee,dc=org
 objectClass: aegeeBodyFab
 bodyCode: ACA
-bodyNameAscii: Academy
-mail: aca@aegeee
-netcom: mayri
-o: AUDIT
+bodyNameAscii: AEGEE-Academy
+mail: aegee-academy@aegee.org
+netcom: person.responsible
+o: something
 bodyCategory: External
 
 
 dn: bodyCode=GOL,ou=groups,dc=aegee,dc=org
 objectClass: aegeeBodyFab
 bodyCode: GOL
-bodyNameAscii: gold
-mail: gold@aegeee
-netcom: mayrio
-o: net
-o: pino
+bodyNameAscii: AEGEE-Gold
+mail: gold@aegee.org
+netcom: person.responsible
+o: something
 bodyCategory: External
 
 
 dn: bodyCode=ANC,ou=groups,dc=aegee,dc=org
 objectClass: aegeeBodyFab
 bodyCode: ANC
-bodyNameAscii: anciens
-mail: anciens@aegeee
-netcom: mayrio
-o: net
-o: pino
+bodyNameAscii: Les Anciens
+mail: anciens@aegee.org
+netcom: person.responsible
+o: something
+o: something else
 bodyCategory: External
 
