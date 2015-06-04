@@ -2,7 +2,7 @@
 #NOT WORKING YET
 
 
-#dn: olcOverlay=dynlist,dc=aegee,dc=org
+#dn: olcOverlay=dynlist,o=aegee,c=eu
 #changetype: add
 #objectClass: olcConfig
 #objectClass: olcOverlayConfig

@@ -1,5 +1,5 @@
 
-dn: bodyCode=ACA,ou=groups,dc=aegee,dc=org
+dn: bodyCode=ACA,ou=groups,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: ACA
 bodyNameAscii: AEGEE-Academy
@@ -9,7 +9,7 @@ o: something
 bodyCategory: External
 
 
-dn: bodyCode=GOL,ou=groups,dc=aegee,dc=org
+dn: bodyCode=GOL,ou=groups,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: GOL
 bodyNameAscii: AEGEE-Gold
@@ -19,7 +19,7 @@ o: something
 bodyCategory: External
 
 
-dn: bodyCode=ANC,ou=groups,dc=aegee,dc=org
+dn: bodyCode=ANC,ou=groups,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: ANC
 bodyNameAscii: Les Anciens

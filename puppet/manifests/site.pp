@@ -13,7 +13,7 @@ exec { "import log + indices":
   command => '/var/opt/aegee/import-log-indices.sh',
   user    => "root",
   require => [ File['/var/opt/aegee'],
-               Openldap::Server::Database['dc=aegee,dc=org'],
+               Openldap::Server::Database['o=aegee,c=eu'],
               ],
   before => Exec['translate aegee schema'],
 }
@@ -21,7 +21,7 @@ exec { "translate aegee schema":
   command => '/var/opt/aegee/translate-ldif.sh',
   user    => "vagrant",
   require => [ File['/var/opt/aegee'],
-               Openldap::Server::Database['dc=aegee,dc=org'],
+               Openldap::Server::Database['o=aegee,c=eu'],
               ],
 #  before => Exec['import schemas'],
 }
@@ -29,7 +29,7 @@ exec { "import schemas":
   command => '/var/opt/aegee/import-schema.sh',
   user    => "root",
   require => [ File['/var/opt/aegee'],
-               Openldap::Server::Database['dc=aegee,dc=org'],
+               Openldap::Server::Database['o=aegee,c=eu'],
                Exec['translate aegee schema']
               ],
 }
@@ -41,8 +41,8 @@ exec { "import ldif structure":
 
 # Configure LDAP server
 class { 'openldap::server': }
-openldap::server::database { 'dc=aegee,dc=org':
-  rootdn => 'cn=admin,dc=aegee,dc=org',
+openldap::server::database { 'o=aegee,c=eu':
+  rootdn => 'cn=admin,o=aegee,c=eu',
   rootpw => 'aegee',
   backend => hdb,
   ensure => present,
@@ -51,10 +51,10 @@ openldap::server::database { 'dc=aegee,dc=org':
 # Configure phpLDAPadmin (only for development)
 class { 'phpldapadmin':
   ldap_host      => 'localhost',
-  ldap_suffix    => 'dc=aegee,dc=org',
-  ldap_bind_id   => 'cn=admin,dc=aegee,dc=org',
+  ldap_suffix    => 'o=aegee,c=eu',
+  ldap_bind_id   => 'cn=admin,o=aegee,c=eu',
   ldap_bind_pass => 'aegee', 
-  require        => Openldap::Server::Database['dc=aegee,dc=org'],
+  require        => Openldap::Server::Database['o=aegee,c=eu'],
 }->
 
 #Overlays
@@ -65,7 +65,7 @@ openldap::server::module { 'dynlist':
 ->
 
 ##TODO: extend it to have custom attribute for dynlist
-openldap::server::overlay { 'dynlist on dc=aegee,dc=org':
+openldap::server::overlay { 'dynlist on o=aegee,c=eu':
   ensure => present,
 }
 

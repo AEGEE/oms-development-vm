@@ -2,7 +2,7 @@
 # the ou: Comite Directeur is the department name
 
 ###CHECK THIS dn DOWN HERE for authentication: which is the most used dn ? via cn or via uid? probably via uid (for auth)
-dn: uid=fabrizio.bellicano,ou=people,dc=aegee,dc=org
+dn: uid=fabrizio.bellicano,ou=people,o=aegee,c=eu
 objectClass: aegeePersonFab
 cn: Fabrizio Bellicano
 givenName: fabrizio
@@ -295,7 +295,7 @@ jpegPhoto:: /9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBQgMFBofBgYHCg0dHhwHBwgMFB0j
 tShirtSize: m
 
 
-dn: uid=ana.potocnik,ou=people,dc=aegee,dc=org
+dn: uid=ana.potocnik,ou=people,o=aegee,c=eu
 objectclass: aegeePersonFab
 gn: Ana
 cn: Ana Photonica
@@ -308,7 +308,7 @@ mail: sheri.smith@example.com
 description: something
 
 
-dn: uid=paul.smits,ou=people,dc=aegee,dc=org  
+dn: uid=paul.smits,ou=people,o=aegee,c=eu  
 objectclass: aegeePersonFab
 gn: Paul
 cn: Paul Smits

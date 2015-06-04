@@ -47,5 +47,5 @@ sudo mv /tmp/aegee.ldif /var/opt/aegee/aegee.ldif
 #commented as part of the other script
 
 #THIS DOES NOT WORK
-#ldapadd -x -D "cn=admin,dc=aegee,dc=org" -f /tmp/aegee.ldif -w admin
+#ldapadd -x -D "cn=admin,o=aegee,c=eu" -f /tmp/aegee.ldif -w admin
 

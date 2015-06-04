@@ -14,7 +14,7 @@ for line in lines:
 	bodystatus = stuff[2].replace('"', '').strip()
 
 	blob="""
-	dn: bodycode=%s,ou=antennae,dc=aegee,dc=org
+	dn: bodycode=%s,ou=antennae,o=aegee,c=eu
 	objectclass: aegeeBodyFab
 	bodycode: %s
 	bodynameascii: %s

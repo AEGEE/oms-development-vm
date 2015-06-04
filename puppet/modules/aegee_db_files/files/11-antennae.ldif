@@ -1,6 +1,6 @@
 ##SECOND level hierarchy (antennae)
 
-dn: bodycode=CRN,ou=antennae,dc=aegee,dc=org
+dn: bodycode=CRN,ou=antennae,o=aegee,c=eu
 objectclass: aegeeBodyFab
 bodycode: CRN
 bodynameascii: A Coruna
@@ -10,7 +10,7 @@ bodyCategory: Local
 bodystatus: A
 o: something
 
-dn: bodycode=AAC,ou=antennae,dc=aegee,dc=org
+dn: bodycode=AAC,ou=antennae,o=aegee,c=eu
 objectclass: aegeeBodyFab
 bodycode: AAC
 bodynameascii: Aachen
@@ -20,7 +20,7 @@ bodyCategory: Local
 bodystatus: A
 o: something
 
-dn: bodycode=ADA,ou=antennae,dc=aegee,dc=org
+dn: bodycode=ADA,ou=antennae,o=aegee,c=eu
 objectclass: aegeeBodyFab
 bodycode: ADA
 bodynameascii: Adana
@@ -30,7 +30,7 @@ bodyCategory: Local
 bodystatus: A
 o: something
 
-dn: bodycode=LOU,ou=antennae,dc=aegee,dc=org
+dn: bodycode=LOU,ou=antennae,o=aegee,c=eu
 objectclass: aegeeBodyFab
 bodycode: LOU
 bodynameascii: Louvain-la-Neuve
@@ -40,7 +40,7 @@ bodyCategory: Local
 bodystatus: CA
 o: something
 
-dn: bodycode=LUG,ou=antennae,dc=aegee,dc=org
+dn: bodycode=LUG,ou=antennae,o=aegee,c=eu
 objectclass: aegeeBodyFab
 bodycode: LUG
 bodynameascii: Lugano
@@ -50,7 +50,7 @@ bodyCategory: Local
 bodystatus: C
 o: something
 
-dn: bodycode=LUX,ou=antennae,dc=aegee,dc=org
+dn: bodycode=LUX,ou=antennae,o=aegee,c=eu
 objectclass: aegeeBodyFab
 bodycode: LUX
 bodynameascii: Luxembourg
@@ -60,7 +60,7 @@ bodyCategory: Local
 bodystatus: C
 o: something
 
-dn: bodycode=MNC,ou=antennae,dc=aegee,dc=org
+dn: bodycode=MNC,ou=antennae,o=aegee,c=eu
 objectclass: aegeeBodyFab
 bodycode: MNC
 bodynameascii: Manchester
@@ -70,7 +70,7 @@ bodyCategory: Local
 bodystatus: C
 o: something
 
-dn: bodycode=NEW,ou=antennae,dc=aegee,dc=org
+dn: bodycode=NEW,ou=antennae,o=aegee,c=eu
 objectclass: aegeeBodyFab
 bodycode: NEW
 bodynameascii: Newcastle-upon-Tyne
