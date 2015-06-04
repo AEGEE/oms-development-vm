@@ -1,7 +1,7 @@
 #This contains data that gives some membership and stuff
 
 ##OTHER NAMES
-dn: uid=somebody.responsible,ou=people,dc=aegee,dc=org
+dn: uid=somebody.responsible,ou=people,o=aegee,c=eu
 objectClass: aegeePersonFab
 cn: somebody responsible
 givenName: somebody
@@ -11,7 +11,7 @@ uid: somebody.responsible
 userPassword:: amhn
 birthDate: 2015-04-14
 
-dn: uid=aegee.dude,ou=people,dc=aegee,dc=org
+dn: uid=aegee.dude,ou=people,o=aegee,c=eu
 objectClass: aegeePersonFab
 cn: aegee dude
 givenName: aegee
@@ -22,7 +22,7 @@ userPassword:: cGlubw==
 birthDate: 2015-04-14
 
 #MEMBERSHIPS
-dn: bodyCode=LOU,uid=somebody.responsible,ou=people,dc=aegee,dc=org
+dn: bodyCode=LOU,uid=somebody.responsible,ou=people,o=aegee,c=eu
 objectClass: aegeePersonMembership
 bodyCode: LOU
 bodyNameAscii: Louvain-la-neuve
@@ -33,7 +33,7 @@ o: something
 memberSinceDate: 20/5/2013
 memberUntilDate: 20/5/2014
 
-dn: bodyCode=LOU,uid=fabrizio.bellicano,ou=people,dc=aegee,dc=org
+dn: bodyCode=LOU,uid=fabrizio.bellicano,ou=people,o=aegee,c=eu
 objectClass: aegeePersonMembership
 bodyCode: LOU
 bodyNameAscii: Louvain-la-neuve
@@ -44,7 +44,7 @@ o: something
 memberSinceDate: 20/5/2013
 memberUntilDate: 20/5/2014
 
-dn: bodyCode=LOU,uid=aegee.dude,ou=people,dc=aegee,dc=org
+dn: bodyCode=LOU,uid=aegee.dude,ou=people,o=aegee,c=eu
 objectClass: aegeePersonMembership
 bodyCode: LOU
 bodyNameAscii: Louvain-la-neuve
@@ -55,7 +55,7 @@ o: something
 memberSinceDate: 20/5/2013
 memberUntilDate: 20/5/2013
 
-dn: bodyCode=ITC,uid=somebody.responsible,ou=people,dc=aegee,dc=org
+dn: bodyCode=ITC,uid=somebody.responsible,ou=people,o=aegee,c=eu
 objectClass: aegeePersonMembership
 bodyCode: ITC
 bodyNameAscii: it commi
@@ -66,7 +66,7 @@ o: something
 memberSinceDate: 20/5/2013
 memberUntilDate: 20/5/2013
 
-dn: bodyCode=PRC,uid=somebody.responsible,ou=people,dc=aegee,dc=org
+dn: bodyCode=PRC,uid=somebody.responsible,ou=people,o=aegee,c=eu
 objectClass: aegeePersonMembership
 bodyCode: PRC
 bodyNameAscii: Public Relations Committee
@@ -78,7 +78,7 @@ memberSinceDate: 20/5/2013
 memberUntilDate: 20/5/2013
 
 #GROUPS
-dn: bodyCode=H4Y,ou=groups,dc=aegee,dc=org
+dn: bodyCode=H4Y,ou=groups,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: H4Y
 bodyNameAscii: Health 4 youth
@@ -88,7 +88,7 @@ o: something
 bodyCategory: Group
 
 #LOCAL GROUPS
-dn: bodyCode=BOARD,bodyCode=LOU,ou=antennae,dc=aegee,dc=org
+dn: bodyCode=BOARD,bodyCode=LOU,ou=antennae,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: BOARD
 bodyNameAscii: Board Louvain-La-Neuve
@@ -98,8 +98,7 @@ o: board
 bodyCategory: LocalGroup
 
 #MEMBERSHIPS IN LOCAL GROUPS
-dn: uid=fabrizio.bellicano,bodyCode=BOARD,bodyCode=LOU,ou=antennae,dc=aegee,
- dc=org
+dn: uid=fabrizio.bellicano,bodyCode=BOARD,bodyCode=LOU,ou=antennae, o=aegee,c=eu
 objectClass: aegeePersonFab
 cn: Fabrizio Bellicano
 givenName: fabrizio
@@ -280,8 +279,7 @@ jpegPhoto:: /9j/4gIcSUNDX1BST0ZJTEUAAQEAAAIMbGNtcwIQAABtbnRyUkdCIFhZWiAH3AAB
  2qSgOKKADy7cvaaASawFKEnDgzxEojtVNtyFsYtwCnwKZWwAW2aL5B3kRLVCS0SR6lwk27hRNgC
  BeYYgl4EaVs7b/wCZ/9k=
 
-dn: uid=somebody.responsible,bodyCode=BOARD,bodyCode=LOU,ou=antennae,dc=aeg
- ee,dc=org
+dn: uid=somebody.responsible,bodyCode=BOARD,bodyCode=LOU,ou=antennae,o=aegee,c=eu
 objectClass: aegeePersonFab
 cn: somebody responsible
 givenName: somebody
@@ -293,7 +291,7 @@ birthDate: 2015-04-14
 
 
 #TEST FOR GROUPOFURLS OBJECTCLASS
-dn: ou=testURLS,dc=aegee,dc=org
+dn: ou=testURLS,o=aegee,c=eu
 objectClass: organizationalUnit
 ou: testURLS
 

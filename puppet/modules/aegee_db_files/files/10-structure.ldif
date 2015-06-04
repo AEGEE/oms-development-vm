@@ -31,33 +31,33 @@
 ## have a STRUCTURAL objectclass (organization in this case)
 # this is an ENTRY sequence and is preceded by a BLANK line
 
-#Note: top level (dc=aegee,dc=org) is already set by ldapdn
+#Note: top level (o=aegee,c=eu) is already set by ldapdn
 
 ## FIRST Level hierarchy - people & antennae
 ## uses mixed upper and lower case for objectclass
 # this is an ENTRY sequence and is preceded by a BLANK line
 
-dn: ou=people, dc=aegee,dc=org
+dn: ou=people, o=aegee,c=eu
 objectclass: organizationalunit
 ou: people
 description: All people in organisation
 
-dn: ou=antennae, dc=aegee,dc=org
+dn: ou=antennae, o=aegee,c=eu
 objectclass: organizationalunit
 ou: antennae
 description: All antennae in organisation
 
-dn: ou=committees, dc=aegee,dc=org
+dn: ou=committees, o=aegee,c=eu
 objectclass: organizationalunit
 ou: committees
 description: All committees in organisation
 
-dn: ou=groups, dc=aegee,dc=org
+dn: ou=groups, o=aegee,c=eu
 objectclass: organizationalunit
 ou: groups
 description: All groups (WG) and projects in organisation
 
-dn: ou=commissions,dc=aegee,dc=org
+dn: ou=commissions,o=aegee,c=eu
 objectClass: organizationalUnit
 ou: commissions
 description: All commissions in organisation

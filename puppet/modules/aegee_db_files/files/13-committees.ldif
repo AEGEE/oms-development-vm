@@ -1,6 +1,6 @@
 ## SECOND Level hierarchy (committees)
 
-dn: bodyCode=ITC,ou=committees,dc=aegee,dc=org
+dn: bodyCode=ITC,ou=committees,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: ITC
 bodyNameAscii: IT Committee
@@ -9,7 +9,7 @@ netcom: somebody.responsible
 o: something
 bodyCategory: Committee
 
-dn: bodyCode=PRC,ou=committees,dc=aegee,dc=org
+dn: bodyCode=PRC,ou=committees,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: PRC
 bodyNameAscii: Public Relations Committee
@@ -18,7 +18,7 @@ netcom: somebody.responsible
 o: something
 bodyCategory: Committee
 
-dn: bodyCode=CHA,ou=committees,dc=aegee,dc=org
+dn: bodyCode=CHA,ou=committees,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: CHA
 bodyNameAscii: Chair team
@@ -27,7 +27,7 @@ netcom: somebody.responsible
 o: something
 bodyCategory: Committee
 
-dn: bodyCode=SUC,ou=committees,dc=aegee,dc=org
+dn: bodyCode=SUC,ou=committees,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: SUC
 bodyNameAscii: Summer University Coordination Team
