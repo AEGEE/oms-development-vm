@@ -33,6 +33,7 @@ o: something
 memberSinceDate: 20/5/2013
 memberUntilDate: 20/5/2014
 
+
 dn: bodyCode=LOU,uid=fabrizio.bellicano,ou=people,o=aegee,c=eu
 objectClass: aegeePersonMembership
 bodyCode: LOU
@@ -43,6 +44,10 @@ netcom: somebody.responsible
 o: something
 memberSinceDate: 20/5/2013
 memberUntilDate: 20/5/2014
+changeLog: 2014-09-19, membertype=ancien
+changeLog: 2014-09-10, membertype=board, title=president
+changeLog: 2014-09-11, membertype=member, title=null
+changeLog: 2014-02-24, membertype=member
 
 dn: bodyCode=LOU,uid=aegee.dude,ou=people,o=aegee,c=eu
 objectClass: aegeePersonMembership
@@ -54,6 +59,10 @@ netcom: somebody.responsible
 o: something
 memberSinceDate: 20/5/2013
 memberUntilDate: 20/5/2013
+changeLog: 2014-09-19, membertype=ancien
+changeLog: 2014-09-10, membertype=board, title=president
+changeLog: 2014-09-11, membertype=member, title=null
+changeLog: 2014-02-24, membertype=member
 
 dn: bodyCode=ITC,uid=somebody.responsible,ou=people,o=aegee,c=eu
 objectClass: aegeePersonMembership

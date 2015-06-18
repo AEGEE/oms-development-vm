@@ -1,3 +1,12 @@
+#Precondition: apt-get update
+
+exec { "aptGetUpdate":
+    command => "apt-get update",
+    user => "root",
+    path => ["/bin", "/usr/bin"],
+    before => File['/var/opt/aegee'],
+}
+
 # Copy all DB files to node
 file { "/var/opt/aegee":
   ensure => "directory",
@@ -69,4 +78,7 @@ openldap::server::overlay { 'dynlist on o=aegee,c=eu':
   ensure => present,
 }
 
-include phpldapadmin, aegee_db_files
+include phpldapadmin, aegee_db_files #, nodejs
+#include apt_update
+include othertools
+include nodejs
