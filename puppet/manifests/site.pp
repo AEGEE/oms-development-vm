@@ -78,7 +78,16 @@ openldap::server::overlay { 'dynlist on o=aegee,c=eu':
   ensure => present,
 }
 
-include phpldapadmin, aegee_db_files #, nodejs
-#include apt_update
+class { 'nodejs':
+  # TODO: The following setting installs nodejs from apt, which is not very
+  #       recent. However, installing from NodeSource currently fails due to a
+  #       bug in puppet-nodejs. See
+  #       https://github.com/puppet-community/puppet-nodejs/issues/149
+  #       Try to update puppet-nodejs once the bug is fixed.
+  manage_package_repo       => false,
+  nodejs_dev_package_ensure => 'present',
+  npm_package_ensure        => 'present',
+}
+
+include phpldapadmin, aegee_db_files
 include othertools
-include nodejs
