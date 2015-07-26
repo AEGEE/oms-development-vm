@@ -85,5 +85,25 @@ class { 'nodejs':
   npm_package_ensure        => 'present',
 }
 
+file { '/srv/oms-core':
+  ensure => directory,
+}
+->
+vcsrepo { '/srv/oms-core':
+  ensure   => present,
+  revision => 'dev',
+  provider => git,
+  source   => 'https://bitbucket.org/aegeeitc/oms-core.git',
+}
+
+# TODO: It would be great if there was a proper "puppet way" to do this.
+#       A feature request is tracked here:
+#       https://github.com/puppet-community/puppet-nodejs/issues/154
+exec { 'install dependencies of oms-core':
+  command => '/usr/bin/npm install',
+  cwd     => '/srv/oms-core',
+  require => [ Class['nodejs'], Vcsrepo['/srv/oms-core'] ],
+}
+
 include phpldapadmin, aegee_db_files
-include othertools
+include othertools, git
