@@ -1,11 +1,7 @@
-#Precondition: apt-get update
-
-exec { "aptGetUpdate":
-    command => "apt-get update",
-    user => "root",
-    path => ["/bin", "/usr/bin"],
-    before => File['/var/opt/aegee'],
-}
+# Run apt-get update before installing any packages
+# See http://johnleach.co.uk/words/771/puppet-dependencies-and-run-stages
+class { 'apt': }
+Exec['apt_update'] -> Package <| |>
 
 # Copy all DB files to node
 file { "/var/opt/aegee":
