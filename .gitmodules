@@ -24,4 +24,4 @@
 	url = https://github.com/puppet-community/puppet-nodejs
 [submodule "oms-core"]
 	path = oms-core
-	url = git@bitbucket.org:aegeeitc/oms-core.git
+	url = ../oms-core.git
