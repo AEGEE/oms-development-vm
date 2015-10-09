@@ -20,28 +20,23 @@ exec { "import log + indices":
   require => [ File['/var/opt/aegee'],
                Openldap::Server::Database['o=aegee,c=eu'],
               ],
-  before => Exec['translate aegee schema'],
-}
-exec { "translate aegee schema":
-  command => '/var/opt/aegee/translate-ldif.sh',
-  user    => "vagrant",
-  require => [ File['/var/opt/aegee'],
-               Openldap::Server::Database['o=aegee,c=eu'],
-              ],
-#  before => Exec['import schemas'],
-}
-exec { "import schemas":
-  command => '/var/opt/aegee/import-schema.sh',
-  user    => "root",
-  require => [ File['/var/opt/aegee'],
-               Openldap::Server::Database['o=aegee,c=eu'],
-               Exec['translate aegee schema']
-              ],
-}
+    before =>   Openldap::Server::Schema["AEGEE"], 
+}->
+
+##Import schemas in a smarter way
+openldap::server::schema { 'AEGEE':
+  ensure  => present,
+  path    => '/var/opt/aegee/aegee.schema',
+  require => [
+                File['/var/opt/aegee'],
+                Openldap::Server::Database['o=aegee,c=eu'],
+             ],
+}->
+
 exec { "import ldif structure":
   command => '/var/opt/aegee/import-structure.sh',
   user    => "vagrant",
-  require => Exec['import schemas'],
+  require => Openldap::Server::Schema["AEGEE"],
 }
 
 # Configure LDAP server
@@ -60,18 +55,6 @@ class { 'phpldapadmin':
   ldap_bind_id   => 'cn=admin,o=aegee,c=eu',
   ldap_bind_pass => 'aegee', 
   require        => Openldap::Server::Database['o=aegee,c=eu'],
-}->
-
-#Overlays
-#dynamic groups
-openldap::server::module { 'dynlist':
-  ensure => present,
-}
-->
-
-##TODO: extend it to have custom attribute for dynlist
-openldap::server::overlay { 'dynlist on o=aegee,c=eu':
-  ensure => present,
 }
 
 # Install Node.js and npm

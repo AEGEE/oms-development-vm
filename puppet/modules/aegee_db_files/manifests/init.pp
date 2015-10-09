@@ -21,6 +21,31 @@ class othertools {
 #  class { 'redis': }
 #}
 
+class othertools {
+
+    #for inline editing
+    package { "vim-common":
+        ensure => latest,
+    }
+
+    #useful most of the time
+    package { "curl":
+        ensure => present,
+    }
+
+    #useful for resource mgmt
+    package { "htop":
+        ensure => present,
+    }
+
+    #useful just for PoC in php...
+    package { "php5-curl":
+        ensure => present,
+    }
+
+
+}
+
 #include apt_update
 #include othertools
 #include nodejs
