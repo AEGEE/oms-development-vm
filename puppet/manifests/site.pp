@@ -23,13 +23,18 @@ exec { "import log + indices":
     before =>   Openldap::Server::Schema["AEGEE"], 
 }->
 
-##Import schemas in a smarter way
+# Import AEGEE schema and dependencies
+$standardLdapSchemas = [ "core", "cosine", "dyngroup", "inetorgperson", "nis" ]
+openldap::server::schema { $standardLdapSchemas:
+  ensure  => present,
+}
 openldap::server::schema { 'AEGEE':
   ensure  => present,
   path    => '/var/opt/aegee/aegee.schema',
   require => [
                 File['/var/opt/aegee'],
                 Openldap::Server::Database['o=aegee,c=eu'],
+                Openldap::Server::Schema[$standardLdapSchemas],
              ],
 }->
 
