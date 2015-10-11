@@ -3,6 +3,15 @@
 class { 'apt': }
 Exec['apt_update'] -> Package <| |>
 
+class { 'aegee_ldap':
+  dbname               => 'o=aegee,c=eu',
+  rootdn               => 'cn=admin,o=aegee,c=eu',
+  rootpw               => 'aegee',
+  import_testdata      => true,
+  install_phpldapadmin => true,
+  ldap_loglvel         => 'stats',
+}
+
 # Install Node.js and npm
 # See https://github.com/puppet-community/puppet-nodejs
 class { 'nodejs':
@@ -83,4 +92,3 @@ package { "php5-curl":
 }
 
 include git
-include aegee_ldap
