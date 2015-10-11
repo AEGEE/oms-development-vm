@@ -120,7 +120,7 @@ class { 'composer':
 }
 
 # Clone OMS-modules from git and install dependencies
-file { '/var/www/html/oms-modules':
+file { [ '/var/www', '/var/www/html', '/var/www/html/oms-modules' ]:
   ensure => directory,
 }
 ->
