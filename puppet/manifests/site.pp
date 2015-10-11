@@ -128,7 +128,6 @@ vcsrepo { '/var/www/html/oms-modules':
   ensure   => present,
   provider => git,
   source   => 'https://bitbucket.org/aegeeitc/oms-poc-modules.git',
-  revision => 'httpful-composer',
 }
 ->
 composer::exec { 'oms-modules-install':
