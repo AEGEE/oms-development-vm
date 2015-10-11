@@ -13,15 +13,21 @@ file { "/var/opt/aegee":
   source  => "puppet:///modules/aegee_db_files/",
 }
 
-# Run ldapadd to import some LDIF files
-exec { "import log + indices":
-  command => '/var/opt/aegee/import-log-indices.sh',
-  user    => "root",
-  require => [ File['/var/opt/aegee'],
-               Openldap::Server::Database['o=aegee,c=eu'],
-              ],
-    before =>   Openldap::Server::Schema["AEGEE"], 
-}->
+# Basic LDAP configuration
+ldapdn { "enable logging":
+  dn                => "cn=config",
+  attributes        => ["olcLogLevel: stats"],
+  unique_attributes => ["olcLogLevel"],
+  ensure            => present,
+}
+
+ldapdn { "enable index":
+  dn                => "olcDatabase={1}hdb,cn=config",
+  attributes        => ["olcDbIndex: uid eq,pres,sub"],
+  unique_attributes => ["olcDbIndex"],
+  ensure            => present,
+  require           => Openldap::Server::Database['o=aegee,c=eu'],
+}
 
 # Import AEGEE schema and dependencies
 $standardLdapSchemas = [ "core", "cosine", "dyngroup", "inetorgperson", "nis" ]
