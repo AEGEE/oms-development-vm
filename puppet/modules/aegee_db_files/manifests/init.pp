@@ -28,11 +28,6 @@ class othertools {
         ensure => latest,
     }
 
-    #useful most of the time
-    package { "curl":
-        ensure => present,
-    }
-
     #useful for resource mgmt
     package { "htop":
         ensure => present,

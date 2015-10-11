@@ -115,5 +115,27 @@ file { '/etc/init/oms-core.conf':
   source => 'puppet:///modules/aegee_db_files/oms-core.conf',
 }
 
+class { 'composer':
+  suhosin_enabled => false,
+}
+
+# Clone OMS-modules from git and install dependencies
+file { '/var/www/html/oms-modules':
+  ensure => directory,
+}
+->
+vcsrepo { '/var/www/html/oms-modules':
+  ensure   => present,
+  provider => git,
+  source   => 'https://bitbucket.org/aegeeitc/oms-poc-modules.git',
+  revision => 'httpful-composer',
+}
+->
+composer::exec { 'oms-modules-install':
+  cmd     => 'install',
+  cwd     => '/var/www/html/oms-modules',
+  require => Class['composer'],
+}
+
 include phpldapadmin, git
 include aegee_db_files, othertools
