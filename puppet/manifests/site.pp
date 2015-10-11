@@ -10,7 +10,7 @@ file { "/var/opt/aegee":
   group  => "root",
   mode   => 755,
   recurse => remote,
-  source  => "puppet:///modules/aegee_db_files/",
+  source  => "puppet:///modules/aegee_ldap/",
 }
 
 # Basic LDAP configuration
@@ -128,7 +128,7 @@ package { 'forever':
 #       create a link or copy the file to /etc/init/. At the very least, this
 #       file should not be with the other DB files.
 file { '/etc/init/oms-core.conf':
-  source => 'puppet:///modules/aegee_db_files/oms-core.conf',
+  source => 'puppet:///modules/aegee_ldap/oms-core.conf',
 }
 
 # Install some handy tools for development
@@ -153,4 +153,4 @@ package { "php5-curl":
 }
 
 include phpldapadmin, git
-include aegee_db_files
+include aegee_ldap

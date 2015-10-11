@@ -1,0 +1,2 @@
+class aegee_ldap {
+}
