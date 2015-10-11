@@ -42,12 +42,17 @@ openldap::server::schema { 'AEGEE':
                 Openldap::Server::Database['o=aegee,c=eu'],
                 Openldap::Server::Schema[$standardLdapSchemas],
              ],
-}->
+}
 
-exec { "import ldif structure":
-  command => '/var/opt/aegee/import-structure.sh',
-  user    => "vagrant",
-  require => Openldap::Server::Schema["AEGEE"],
+# Import test data (on first run)
+exec { "import LDAP test data from LDIF files":
+  command => '/var/opt/aegee/testdata/import-data.sh cn=admin,o=aegee,c=eu aegee',
+  creates => '/var/opt/aegee/testdata/.dataimported',
+  unless  => '/usr/bin/test -f /var/opt/aegee/testdata/.dataimported',
+  require =>  [
+                Openldap::Server::Schema["AEGEE"],
+                File['/var/opt/aegee'],
+              ],
 }
 
 # Configure LDAP server
