@@ -53,7 +53,7 @@ class aegee_oms_core(
 
   # Start OMS-core as an upstart service
   file { '/etc/init/oms-core.conf':
-    source => '/etc/init/oms-core.conf',
+    source => 'puppet:///modules/aegee_oms_core/etc/init/oms-core.conf',
   }
   ->
   service { 'oms-core':
