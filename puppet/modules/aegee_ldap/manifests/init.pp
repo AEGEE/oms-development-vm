@@ -1,3 +1,4 @@
+# Installs and configures an LDAP server for the OMS of AEGEE-Europe
 class aegee_ldap (
     $dbname, $rootdn, $rootpw,
     $import_testdata = false,

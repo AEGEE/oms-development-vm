@@ -1,3 +1,4 @@
+# Installs and configures the (AEGEE-Europe) OMS core server
 class aegee_oms_core(
     $root_path,
     $git_source,
