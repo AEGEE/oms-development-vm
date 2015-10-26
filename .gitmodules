@@ -19,9 +19,6 @@
 [submodule "puppet/modules/augeasprovider_core"]
 	path = puppet/modules/augeasprovider_core
 	url = https://github.com/hercules-team/augeasproviders_core.git
-[submodule "oms-core"]
-	path = oms-core
-	url = ../oms-core.git
 [submodule "puppet/modules/apt"]
 	path = puppet/modules/apt
 	url = https://github.com/puppetlabs/puppetlabs-apt.git
@@ -34,3 +31,6 @@
 [submodule "puppet/modules/git"]
 	path = puppet/modules/git
 	url = https://github.com/puppetlabs/puppetlabs-git.git
+[submodule "puppet/modules/composer"]
+	path = puppet/modules/composer
+	url = https://github.com/tPl0ch/puppet-composer.git
