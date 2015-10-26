@@ -10,7 +10,7 @@ class aegee_oms_core(
   }
   ->
   vcsrepo { $root_path:
-    ensure   => present,
+    ensure   => latest,
     provider => git,
     source   => $git_source,
     revision => $git_branch,
