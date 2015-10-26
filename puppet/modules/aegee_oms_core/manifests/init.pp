@@ -40,9 +40,9 @@ class aegee_oms_core(
     command => '/usr/bin/npm install',
     cwd     => $root_path,
     require => [
-                 Class['nodejs'],
-                 Vcsrepo[$root_path]
-               ],
+                  Class['nodejs'],
+                  Vcsrepo[$root_path],
+                ],
   }
 
   # Install 'forever' to run the nodejs process as daemon

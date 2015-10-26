@@ -8,10 +8,10 @@ class aegee_ldap (
   # Configure LDAP server
   class { 'openldap::server': }
   openldap::server::database { $dbname:
+    ensure  => present,
     rootdn  => $rootdn,
     rootpw  => $rootpw,
     backend => hdb,
-    ensure  => present,
   }
 
   # Copy all DB files to node
@@ -25,8 +25,7 @@ class aegee_ldap (
   }
 
   # Import AEGEE schema and dependencies
-  $standardLdapSchemas = [ 'core', 'cosine', 'dyngroup',
-                           'inetorgperson', 'nis' ]
+  $standardLdapSchemas = ['core', 'cosine', 'dyngroup', 'inetorgperson', 'nis']
   openldap::server::schema { $standardLdapSchemas:
     ensure  => present,
   }
@@ -37,22 +36,22 @@ class aegee_ldap (
                   File['/var/opt/aegee'],
                   Openldap::Server::Database[$dbname],
                   Openldap::Server::Schema[$standardLdapSchemas],
-               ],
+                ],
   }
 
   # Basic LDAP configuration
   ldapdn { 'enable logging':
+    ensure            => present,
     dn                => 'cn=config',
     attributes        => ["olcLogLevel: ${ldap_loglvel}"],
     unique_attributes => ['olcLogLevel'],
-    ensure            => present,
   }
 
   ldapdn { 'enable index':
+    ensure            => present,
     dn                => 'olcDatabase={1}hdb,cn=config',
     attributes        => ['olcDbIndex: uid eq,pres,sub'],
     unique_attributes => ['olcDbIndex'],
-    ensure            => present,
     require           => Openldap::Server::Database[$dbname],
   }
 
