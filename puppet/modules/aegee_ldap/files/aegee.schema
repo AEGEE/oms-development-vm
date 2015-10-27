@@ -395,7 +395,7 @@ objectclass ( 1.3.6.1.4.1.19881.1.3.3
 	DESC 'AEGEE membership of a person (bodycode=X,uid=name,cn=people)' 
 	SUP top 
 	STRUCTURAL 
-	MUST ( memberSinceDate $ memberUntilDate $ givenName $ mail $ uid $ bodyCategory $ bodyCode $ bodyNameAscii ) 
+	MUST ( memberSinceDate $ memberUntilDate $ cn $ mail $ uid $ bodyCategory $ bodyCode $ bodyNameAscii ) 
 	MAY ( labeledURI $ info $ changeLog $ title $ memberType $ o $ studentType $ university $ bankAccount ) 
  )
 
