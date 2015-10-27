@@ -1,3 +1,4 @@
+# Installs and configures the (AEGEE-Europe) OMS core server
 class aegee_oms_core(
     $root_path,
     $git_source,
@@ -40,9 +41,9 @@ class aegee_oms_core(
     command => '/usr/bin/npm install',
     cwd     => $root_path,
     require => [
-                 Class['nodejs'],
-                 Vcsrepo[$root_path]
-               ],
+                  Class['nodejs'],
+                  Vcsrepo[$root_path],
+                ],
   }
 
   # Install 'forever' to run the nodejs process as daemon
