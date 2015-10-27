@@ -29,7 +29,8 @@ file { [ '/var/www', '/var/www/html', '/var/www/html/oms-modules' ]:
 }
 ->
 vcsrepo { '/var/www/html/oms-modules':
-  ensure   => present,
+  ensure   => latest,
+  revision => master,
   provider => git,
   source   => 'https://bitbucket.org/aegeeitc/oms-poc-modules.git',
 }
