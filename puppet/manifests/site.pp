@@ -35,6 +35,15 @@ vcsrepo { '/var/www/html/oms-modules':
   source   => 'https://bitbucket.org/aegeeitc/oms-poc-modules.git',
 }
 ->
+class{ 'php':
+  service_autorestart => false,
+}
+# The OMS modules use httpful, which requires the php curl mod
+->
+php::module { [ 'curl' ]: }
+->
+php::mod { [ 'curl' ] : }
+->
 composer::exec { 'oms-modules-install':
   cmd     => 'install',
   cwd     => '/var/www/html/oms-modules',
