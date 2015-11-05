@@ -6,20 +6,20 @@
 ## (notation loose):
 ## -------------------------------------
 ## BASE DN                       dc aegee, dc org
-## ORGANISATIONAL UNITS          ou people/antennae/committees/groups (,dc aegee, dc org)
+## ORGANISATIONAL UNITS          ou people/bodies (,dc aegee, dc org)
 ## PERSON                        uid fabrizio.bellicano ou people (,dc aegee, dc org)  
-## ANTENNA                       uid ATH ou antennae (,dc aegee, dc org)   
-## COMMITTEE                     uid PRC ou committees (,dc aegee, dc org) 
-## GROUP                         uid H4Y ou groups (,dc aegee, dc org) 
+## ANTENNA                       uid ATH ou bodies (,dc aegee, dc org)   
+## COMMITTEE                     uid PRC ou bodies (,dc aegee, dc org) 
+## GROUP                         uid H4Y ou bodies (,dc aegee, dc org) 
 
 ## and from under a person, the bodies s/he belongs to
 ## bodycode ITC, uid maurits.korse ou people (,dc aegee, dc org)  
 ## bodycode ENS, uid maurits.korse ou people (,dc aegee, dc org)  
 
-## and from under an antenna, commitee, group, there are the internal groups (e.g. board) 
-## bodycode OUTGOING-RESP, uid ATH ou antennae (,dc aegee, dc org)  
-## bodycode BOARD, uid ITC ou committees (,dc aegee, dc org) 
-## bodycode ITC, uid ENS ou antennae (,dc aegee, dc org)  
+## and from under an antenna, committee, group, there are the internal groups (e.g. board) 
+## bodycode OUTGOING-RESP, uid ATH ou bodies (,dc aegee, dc org)  
+## bodycode BOARD, uid ITC ou bodies (,dc aegee, dc org) 
+## bodycode ITC, uid ENS ou bodies (,dc aegee, dc org)  
 ## -----------------------------------------------------
 
 ## DEFINE DIT ROOT/BASE/SUFFIX ####
@@ -42,24 +42,7 @@ objectclass: organizationalunit
 ou: people
 description: All people in organisation
 
-dn: ou=antennae, o=aegee,c=eu
+dn: ou=bodies, o=aegee,c=eu
 objectclass: organizationalunit
-ou: antennae
-description: All antennae in organisation
-
-dn: ou=committees, o=aegee,c=eu
-objectclass: organizationalunit
-ou: committees
-description: All committees in organisation
-
-dn: ou=groups, o=aegee,c=eu
-objectclass: organizationalunit
-ou: groups
-description: All groups (WG) and projects in organisation
-
-dn: ou=commissions,o=aegee,c=eu
-objectClass: organizationalUnit
-ou: commissions
-description: All commissions in organisation
-
-
+ou: bodies
+description: All bodies in organisation: Locals, Committees and Commissions, Groups and Projects, Externals

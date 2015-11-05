@@ -1,5 +1,5 @@
 
-dn: bodyCode=AUD,ou=commissions,o=aegee,c=eu
+dn: bodyCode=AUD,ou=bodies,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: AUD
 bodyNameAscii: Audit commission
@@ -9,7 +9,7 @@ o: something
 bodyCategory: Commission
 
 
-dn: bodyCode=NET,ou=commissions,o=aegee,c=eu
+dn: bodyCode=NET,ou=bodies,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: NET
 bodyNameAscii: Network commission
@@ -19,7 +19,7 @@ o: net
 o: something
 bodyCategory: Commission
 
-dn: bodyCode=MED,ou=commissions,o=aegee,c=eu
+dn: bodyCode=MED,ou=bodies,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: MED
 bodyNameAscii: Mediation commission
@@ -29,7 +29,7 @@ o: something
 o: medcom
 bodyCategory: Commission
 
-dn: bodyCode=JUR,ou=commissions,o=aegee,c=eu
+dn: bodyCode=JUR,ou=bodies,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: JUR
 bodyNameAscii: Juridical commission
@@ -38,7 +38,7 @@ netcom: somebody.responsible
 o: something
 bodyCategory: Commission
 
-dn: bodyCode=CDX,ou=commissions,o=aegee,c=eu
+dn: bodyCode=CDX,ou=bodies,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: CDX
 bodyNameAscii: Comité Directeur
@@ -47,7 +47,7 @@ netcom: somebody.responsible
 o: something
 bodyCategory: Commission
 
-dn: bodyCode=POR, bodyCode=CDX,ou=commissions,o=aegee,c=eu
+dn: bodyCode=POR, bodyCode=CDX,ou=bodies,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: POR
 bodyNameAscii: Pool of Representative
@@ -56,7 +56,7 @@ netcom: somebody.responsible
 o: something
 bodyCategory: Commission
 
-dn: bodyCode=LOX, bodyCode=CDX,ou=commissions,o=aegee,c=eu
+dn: bodyCode=LOX, bodyCode=CDX,ou=bodies,o=aegee,c=eu
 objectClass: aegeeBodyFab
 bodyCode: LOX
 bodyNameAscii: Liaison Officers
