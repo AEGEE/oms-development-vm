@@ -23,9 +23,10 @@ If you use Windows as host (i.e., as development platform), you have to be cauti
 ```
     git config core.autocrlf false
     git config core.eol lf
-    git checkout -- . # Careful: this discards all your changes!
     git submodule foreach --recursive "git config core.autocrlf false"
     git submodule foreach --recursive "git config core.eol lf"
-    git submodule foreach --recursive "git checkout -- ."
+    rm -rf *     # Careful: you know what this does!
+    git checkout -- .
+    git submodule update --recursive
 ```
 * You also have to fix symlinks after cloning! See [this article](http://stackoverflow.com/questions/5917249/git-symlinks-in-windows) for more info.
