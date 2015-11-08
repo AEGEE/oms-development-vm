@@ -15,7 +15,7 @@ class { 'aegee_ldap':
 # Load OMS-core
 class { 'aegee_oms_core':
   root_path  => '/srv/oms-core',
-  git_source => 'https://bitbucket.org/aegeeitc/oms-core.git',
+  git_source => 'https://github.com/AEGEE/oms-core.git',
   require    => Openldap::Server::Database['o=aegee,c=eu'],
 }
 
@@ -32,7 +32,7 @@ vcsrepo { '/var/www/html/oms-modules':
   ensure   => latest,
   revision => master,
   provider => git,
-  source   => 'https://bitbucket.org/aegeeitc/oms-poc-modules.git',
+  source   => 'https://github.com/AEGEE/oms-poc-modules.git',
 }
 ->
 composer::exec { 'oms-modules-install':
