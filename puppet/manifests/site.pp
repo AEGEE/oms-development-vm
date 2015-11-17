@@ -4,7 +4,7 @@ class { 'apt': }
 Exec['apt_update'] -> Package <| |>
 
 class { 'aegee_ldap':
-  dbname               => 'o=aegee,c=eu',
+    dbname               => 'o=aegee,c=eu',
   rootdn               => 'cn=admin,o=aegee,c=eu',
   rootpw               => 'aegee',
   import_testdata      => true,
