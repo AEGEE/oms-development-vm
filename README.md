@@ -1,4 +1,5 @@
-# README #
+# OMS Development VM
+[![Build Status](https://travis-ci.org/AEGEE/oms-development-vm.svg?branch=dev)](https://travis-ci.org/AEGEE/oms-development-vm)
 
 ### What is this repository for? ###
 
