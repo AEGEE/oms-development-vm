@@ -1,9 +1,43 @@
-# Run apt-get update before installing any packages
-# See http://johnleach.co.uk/words/771/puppet-dependencies-and-run-stages
-class { 'apt': }
-Exec['apt_update'] -> Package <| |>
 
-class { 'aegee_ldap':
+
+# Install Node.js and npm
+  # See https://github.com/puppet-community/puppet-nodejs
+  class { 'nodejs': } ->
+
+  #Update node and npm to latest version......
+  #the above doesn't do a great job
+  exec { "Update node and npm":
+    command => '/vagrant/scripts/upgrade_node-npm.sh',
+  }
+  ->
+
+  # Install 'forever' to run the nodejs process as daemon
+  package { "forever":
+    ensure   => 'present',
+    provider => 'npm',
+  }
+  ->
+
+# Load OMS modules
+#Core
+aegee_oms_modules { 'oms-core':
+  module_name => 'oms-core',
+  root_path  => '/srv/oms-core',
+  git_source => 'https://github.com/AEGEE/oms-core.git',
+  git_branch => 'dev',
+}
+->
+#Profile
+aegee_oms_modules { 'oms-profiles-module':
+  module_name => 'oms-profiles-module',
+  root_path  => '/srv/oms-profiles-module',
+  git_source => 'https://github.com/AEGEE/oms-profiles-module.git',
+  git_branch => 'dev',
+}
+->
+
+#After cloning (at least the core), set up LDAP 
+aegee_ldap { 'aegee_ldap':
   dbname               => 'o=aegee,c=eu',
   rootdn               => 'cn=admin,o=aegee,c=eu',
   rootpw               => 'aegee',
@@ -12,42 +46,5 @@ class { 'aegee_ldap':
   ldap_loglvel         => 'stats',
 }
 
-# Load OMS-core
-class { 'aegee_oms_core':
-  root_path  => '/srv/oms-core',
-  git_source => 'https://github.com/AEGEE/oms-core.git',
-  require    => Openldap::Server::Database['o=aegee,c=eu'],
-}
-
-class { 'composer':
-  suhosin_enabled => false,
-}
-
-# Clone OMS-modules from git and install dependencies
-file { [ '/var/www', '/var/www/html', '/var/www/html/oms-modules' ]:
-  ensure => directory,
-}
-->
-vcsrepo { '/var/www/html/oms-modules':
-  ensure   => latest,
-  revision => master,
-  provider => git,
-  source   => 'https://github.com/AEGEE/oms-poc-modules.git',
-}
-->
-class{ 'php':
-  service_autorestart => false,
-}
-# The OMS modules use httpful, which requires the php curl mod
-->
-php::module { [ 'curl' ]: }
-->
-php::mod { [ 'curl' ] : }
-->
-composer::exec { 'oms-modules-install':
-  cmd     => 'install',
-  cwd     => '/var/www/html/oms-modules',
-  require => Class['composer'],
-}
 
 include git

@@ -31,12 +31,6 @@
 [submodule "puppet/modules/git"]
 	path = puppet/modules/git
 	url = https://github.com/puppetlabs/puppetlabs-git.git
-[submodule "puppet/modules/composer"]
-	path = puppet/modules/composer
-	url = https://github.com/tPl0ch/puppet-composer.git
-[submodule "puppet/modules/php"]
-	path = puppet/modules/php
-	url = https://github.com/example42/puppet-php.git
 [submodule "puppet/modules/puppi"]
 	path = puppet/modules/puppi
 	url = https://github.com/example42/puppi.git

@@ -1,5 +1,5 @@
 # Installs and configures an LDAP server for the OMS of AEGEE-Europe
-class aegee_ldap (
+define aegee_ldap (
     $dbname, $rootdn, $rootpw,
     $import_testdata = false,
     $install_phpldapadmin = false,
@@ -22,7 +22,7 @@ class aegee_ldap (
     group   => 'root',
     mode    => '0755',
     recurse => remote,
-    source  => 'puppet:///modules/aegee_ldap/',
+    source  => '/srv/oms-core/schema',
   }
 
   # Import AEGEE schema and dependencies
