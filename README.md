@@ -65,4 +65,4 @@ I tried to make the Vagrantfile as readable as possible but it's worth repeating
 As defined in scripts/upgrade_node-npm.sh, the versions are:
 
 * node 4.1.2
-* npm 2.14.15
+* npm 2.14.4
