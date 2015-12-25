@@ -31,3 +31,38 @@ If you use Windows as host (i.e., as development platform), you have to be cauti
     git submodule update --recursive
 ```
 * You also have to fix symlinks after cloning! See [this article](http://stackoverflow.com/questions/5917249/git-symlinks-in-windows) for more info.
+
+
+### Setup of ports ###
+I tried to make the Vagrantfile as readable as possible but it's worth repeating it here in case you are not familiar with Vagrant.
+
+
+|Host (your computer)|Service|Used by|Guest (the VM)|
+|---|---|---|---|
+|8888|HTTP|apache2|80|
+|4444|LDAP|slapd|389|
+|2222|SSH|sshd|22|
+|---|---|---|---|
+|8800|API|oms-core|8080|
+|8801|consumer|oms-profiles-module|8081|
+
+### Sharing the content of the VM directly so we can work from the host ###
+
+|Your local folder|synced seamless in your VM at|
+|---|---|---|---|
+|ignore/oms-core|/srv/oms-core|
+|ignore/oms-profiles-module|/srv/oms-profiles-module|
+
+### Structure of files and where to touch to modify as you please ###
+
+* Ports: Vagrantfile
+* Synced folders: Vagrantfile
+* Installation and provisioning of the VM: puppet/manifests/site.pp --> __in this file, there are two "classes" used that are defined as per below:__
+  1.  Stuff about installation of LDAP: puppet/modules/aegee_ldap/manifests/init.pp
+  2.  Stuff about installation of OMS: puppet/modules/aegee_ldap/manifests/init.pp
+
+### Versions of Node.js and npm ###
+As defined in scripts/upgrade_node-npm.sh, the versions are:
+
+* node 4.1.2
+* npm 2.14.15
