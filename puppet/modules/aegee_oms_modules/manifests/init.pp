@@ -1,6 +1,6 @@
 # Installs and configures the (AEGEE-Europe) OMS modules 
 define aegee_oms_modules(
-    $module_name = 'oms-core',
+    $module_name,
     $root_path,
     $git_source,
     $git_branch = 'master',
@@ -46,7 +46,7 @@ define aegee_oms_modules(
     provider => 'upstart',
     require  => [
                   File["/etc/init/${module_name}.conf"],
-                  Package["forever"],
+                  Package['forever'],
                   Exec["install dependencies of module ${module_name}"],
                 ],
   }

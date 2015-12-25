@@ -6,13 +6,13 @@
 
   #Update node and npm to latest version......
   #the above doesn't do a great job
-  exec { "Update node and npm":
+  exec { 'Update node and npm':
     command => '/vagrant/scripts/upgrade_node-npm.sh',
   }
   ->
 
   # Install 'forever' to run the nodejs process as daemon
-  package { "forever":
+  package { 'forever':
     ensure   => 'present',
     provider => 'npm',
   }
@@ -22,17 +22,17 @@
 #Core
 aegee_oms_modules { 'oms-core':
   module_name => 'oms-core',
-  root_path  => '/srv/oms-core',
-  git_source => 'https://github.com/AEGEE/oms-core.git',
-  git_branch => 'dev',
+  root_path   => '/srv/oms-core',
+  git_source  => 'https://github.com/AEGEE/oms-core.git',
+  git_branch  => 'dev',
 }
 ->
 #Profile
 aegee_oms_modules { 'oms-profiles-module':
   module_name => 'oms-profiles-module',
-  root_path  => '/srv/oms-profiles-module',
-  git_source => 'https://github.com/AEGEE/oms-profiles-module.git',
-  git_branch => 'dev',
+  root_path   => '/srv/oms-profiles-module',
+  git_source  => 'https://github.com/AEGEE/oms-profiles-module.git',
+  git_branch  => 'dev',
 }
 ->
 
