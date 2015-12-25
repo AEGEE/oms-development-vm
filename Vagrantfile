@@ -34,6 +34,7 @@ Vagrant.configure(2) do |config|
   #end
 
   config.vm.provision :shell, :path => "scripts/upgrade_puppet.sh"
+  config.vm.provision :shell, :path => "scripts/empty_folder.sh"
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = 'puppet/manifests'

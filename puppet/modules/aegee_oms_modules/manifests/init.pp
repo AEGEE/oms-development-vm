@@ -26,7 +26,7 @@ define aegee_oms_modules(
   #       A feature request is tracked here:
   #       https://github.com/puppet-community/puppet-nodejs/issues/154
   exec { "install dependencies of module ${module_name}":
-    command => '/usr/local/bin/npm install',
+    command => '/usr/bin/npm install',
     cwd     => $root_path,
     require => [
                   Exec['Update node and npm'],
