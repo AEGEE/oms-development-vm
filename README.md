@@ -59,10 +59,10 @@ I tried to make the Vagrantfile as readable as possible but it's worth repeating
 * Synced folders: Vagrantfile
 * Installation and provisioning of the VM: puppet/manifests/site.pp --> __in this file, there are two "classes" used that are defined as per below:__
   1.  Stuff about installation of LDAP: puppet/modules/aegee_ldap/manifests/init.pp
-  2.  Stuff about installation of OMS: puppet/modules/aegee_ldap/manifests/init.pp
+  2.  Stuff about installation of OMS: puppet/modules/aegee_oms_modules/manifests/init.pp
 
 ### Versions of Node.js and npm ###
 As defined in scripts/upgrade_node-npm.sh, the versions are:
 
 * node 4.1.2
-* npm 2.14.15
+* npm 2.14.4
