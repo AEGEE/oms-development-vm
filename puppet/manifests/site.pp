@@ -1,4 +1,12 @@
 
+#Packages necessary to build a NPM module ("mongodriver")
+  package { 'g++':
+    ensure  => installed,
+  }->
+  package { 'libkrb5-dev':
+    ensure  => installed,
+  }->
+
 
 # Install Node.js and npm
   # See https://github.com/puppet-community/puppet-nodejs
@@ -45,6 +53,25 @@ aegee_ldap { 'aegee_ldap':
   install_phpldapadmin => true,
   ldap_loglvel         => 'stats',
 }
+
+#Add mongodb backend
+class { 'mongodb':
+  package_name  => 'mongodb-org',
+  logdir       => '/var/log/mongodb/',
+  # only debian like distros
+  old_servicename => 'mongod'
+}
+mongodb::mongod {'my_mongod_instance1':
+    mongod_instance    => 'mongodb1',
+    mongod_add_options => ['slowms = 50'],
+    mongod_port => 27018,
+    require => Class['mongodb'];
+}
+# DBs and users will be set by the application
+
+#Add postgresql backend
+class { 'postgresql::server': }
+
 
 
 include git
