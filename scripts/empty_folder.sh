@@ -6,4 +6,4 @@ rm /srv/oms-core/.delme
 rm /srv/oms-profiles-module/.delme
 
 #ignores the new files in the folders
-echo "\n *" >> /vagrant/ignore/.gitignore
+echo -e $'\n*' >> /vagrant/ignore/.gitignore
