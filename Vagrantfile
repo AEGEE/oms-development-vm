@@ -21,6 +21,7 @@ Vagrant.configure(2) do |config|
   #Profiles module port (generic nodejs app)
   config.vm.network "forwarded_port", guest: 8081, host: 8801
 
+
   
 
   #Sharing the content of the VM directly so we can work from the host
@@ -35,6 +36,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision :shell, :path => "scripts/upgrade_puppet.sh"
   config.vm.provision :shell, :path => "scripts/empty_folder.sh"
+  config.vm.provision :shell, :path => "scripts/install_mongo.sh"
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = 'puppet/manifests'
