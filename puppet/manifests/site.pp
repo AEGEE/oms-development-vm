@@ -55,18 +55,18 @@ aegee_ldap { 'aegee_ldap':
 }
 
 #Add mongodb backend
-class { 'mongodb':
-  package_name  => 'mongodb-org',
-  logdir       => '/var/log/mongodb/',
-  # only debian like distros
-  old_servicename => 'mongod'
-}
-mongodb::mongod {'my_mongod_instance1':
-    mongod_instance    => 'mongodb1',
-    mongod_add_options => ['slowms = 50'],
-    mongod_port => 27018,
-    require => Class['mongodb'];
-}
+#class { 'mongodb':
+#  package_name  => 'mongodb-org',
+#  logdir       => '/var/log/mongodb/',
+#  # only debian like distros
+#  old_servicename => 'mongod'
+#}
+#mongodb::mongod {'my_mongod_instance1':
+#    mongod_instance    => 'mongodb1',
+#    mongod_add_options => ['slowms = 50'],
+#    mongod_port => 27018,
+#    require => Class['mongodb'];
+#}
 # DBs and users will be set by the application
 
 #Add postgresql backend
