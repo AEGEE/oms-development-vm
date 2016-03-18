@@ -55,23 +55,47 @@ aegee_ldap { 'aegee_ldap':
 }
 
 #Add mongodb backend
-#class { 'mongodb':
-#  package_name  => 'mongodb-org',
-#  logdir       => '/var/log/mongodb/',
-#  # only debian like distros
-#  old_servicename => 'mongod'
-#}
+include apt 
+class { 'mongodb':
+  package_name  => 'mongodb-org',
+  package_ensure => '3.2.4',
+  logdir       => '/var/log/mongodb/',
+  # only debian like distros
+  old_servicename => 'mongod'
+}
+
+#check how useful is the below, otherwise just delete it
 #mongodb::mongod {'my_mongod_instance1':
 #    mongod_instance    => 'mongodb1',
 #    mongod_add_options => ['slowms = 50'],
 #    mongod_port => 27018,
-#    require => Class['mongodb'];
+#    require => Class['mongodb'],
 #}
 # DBs and users will be set by the application
 
 #Add postgresql backend
-class { 'postgresql::server': }
+class { 'postgresql::server': } ->
 
+#class { 'phppgadmin': } # /LarkIT/larkit-phppgadmin (only centos)
+include phppgadmin # /knowshan/puppet-phppgadmin
 
+class { 'apache': 
+    mpm_module => 'prefork',
+    require => Class[aegee_ldap], #TODO: make aegee_ldap install phpldapadmin WITH apache module
+}
+class { 'apache::mod::php': }
+apache::vhost { 'phppgadmin':
+  docroot     => '/var/www/html',
+  port        => 80,
+  aliases     => [
+    {
+      alias => '/phpPgAdmin',
+      path  => '/usr/share/phpPgAdmin'
+    }, {
+      alias => '/phppgadmin',
+      path  => '/usr/share/phpPgAdmin'
+    }
+  ],
+} #this breaks phpldapadmin config as it purges all previous conf
 
 include git

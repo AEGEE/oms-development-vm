@@ -34,9 +34,6 @@
 [submodule "puppet/modules/puppi"]
 	path = puppet/modules/puppi
 	url = https://github.com/example42/puppi.git
-[submodule "puppet/modules/mongodb"]
-	path = puppet/modules/mongodb
-	url = https://github.com/echocat/puppet-mongodb.git
 [submodule "puppet/modules/postgresql"]
 	path = puppet/modules/postgresql
 	url = https://github.com/puppetlabs/puppetlabs-postgresql.git
@@ -46,3 +43,18 @@
 [submodule "puppet/modules/file_concat"]
 	path = puppet/modules/file_concat
 	url = https://github.com/electrical/puppet-lib-file_concat.git
+[submodule "scripts/puppet-php"]
+	path = scripts/puppet-php
+	url = https://github.com/jippi/puppet-php.git
+[submodule "puppet/modules/phppgadmin"]
+	path = puppet/modules/phppgadmin
+	url = https://github.com/knowshan/puppet-phppgadmin.git
+[submodule "puppet/modules/apache"]
+	path = puppet/modules/apache
+	url = https://github.com/puppetlabs/puppetlabs-apache.git
+[submodule "puppet/modules/mongodb"]
+	path = puppet/modules/mongodb
+	url = https://github.com/echocat/puppet-mongodb.git
+[submodule "puppet/modules/logrotate"]
+	path = puppet/modules/logrotate
+	url = https://github.com/rodjek/puppet-logrotate.git
