@@ -22,9 +22,6 @@
 [submodule "puppet/modules/apt"]
 	path = puppet/modules/apt
 	url = https://github.com/puppetlabs/puppetlabs-apt.git
-[submodule "puppet/modules/nodejs"]
-	path = puppet/modules/nodejs
-	url = https://github.com/puppet-community/puppet-nodejs.git
 [submodule "puppet/modules/vcsrepo"]
 	path = puppet/modules/vcsrepo
 	url = https://github.com/puppetlabs/puppetlabs-vcsrepo
@@ -58,3 +55,6 @@
 [submodule "puppet/modules/logrotate"]
 	path = puppet/modules/logrotate
 	url = https://github.com/rodjek/puppet-logrotate.git
+[submodule "puppet/modules/nodejs"]
+	path = puppet/modules/nodejs
+	url = https://github.com/willdurand/puppet-nodejs.git
