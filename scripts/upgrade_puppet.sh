@@ -2,6 +2,14 @@
 
 #thanks to http://blog.doismellburning.co.uk/upgrading-puppet-in-vagrant-boxes/
 
+#do something only if puppet is not 3.8.6
+VERSION=$(puppet --version)
+
+if [ $VERSION == '3.8.6' ]; then
+  echo "puppet already ok";
+  exit 0;
+fi
+
 apt-get install --yes lsb-release
 DISTRIB_CODENAME=$(lsb_release --codename --short)
 DEB="puppetlabs-release-${DISTRIB_CODENAME}.deb"

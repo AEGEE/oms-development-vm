@@ -29,13 +29,13 @@ define aegee_ldap (
   $standardLdapSchemas = ['core', 'cosine', 'dyngroup', 'inetorgperson', 'nis']
   openldap::server::schema { $standardLdapSchemas:
     ensure  => present,
+    require => Openldap::Server::Database[$dbname],
   }
   openldap::server::schema { 'AEGEE':
     ensure  => present,
     path    => '/var/opt/aegee/aegee.schema',
     require => [
                   File['/var/opt/aegee'],
-                  Openldap::Server::Database[$dbname],
                   Openldap::Server::Schema[$standardLdapSchemas],
                 ],
   }
@@ -46,6 +46,7 @@ define aegee_ldap (
     dn                => 'cn=config',
     attributes        => ["olcLogLevel: ${ldap_loglvel}"],
     unique_attributes => ['olcLogLevel'],
+    require => Openldap::Server::Database[$dbname],
   }
 
   ldapdn { 'enable index':
@@ -78,24 +79,16 @@ define aegee_ldap (
       ldap_bind_id   => $rootdn,
       ldap_bind_pass => $rootpw,
       require        => Openldap::Server::Database[$dbname],
-    }->
-
-    #include ::apache
-    
-    apache::vhost { 'phpldapadmin':
-      servername => '127.0.0.1',
-      docroot     => '/var/www/html',
-      port        => 80,
-      aliases     => [
-        {
-          alias => '/phpLDAPAdmin',
-          path  => '/usr/share/phpldapadmin/htdocs/'
-        }, {
-          alias => '/phpldapadmin',
-          path  => '/usr/share/phpldapadmin/htdocs/'
-        }
-      ],
-    } 
+    }
   }
 
+}
+
+aegee_ldap { 'aegee_ldap':
+  dbname               => 'o=aegee,c=eu',
+  rootdn               => 'cn=admin,o=aegee,c=eu',
+  rootpw               => 'aegee',
+  import_testdata      => true,
+  install_phpldapadmin => false,
+  ldap_loglvel         => 'stats',
 }
