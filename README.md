@@ -12,8 +12,21 @@ Simple LDAP server with Vagrant and Puppet as proof-of-concept of these technolo
 * Clone this repository _recursively_ with ```git clone --recursive <URL>```.
 * If you use Windows, fix your line endings now (see below).
 * Start the virtual machine with ```vagrant up``` from within the repository folder.
+* READ SECTION BELOW
 * Visit phpLDAPadmin at http://localhost:8888/phpldapadmin in a browser.
 * If you want to use ApacheDirectoryStudio, use server at localhost:4444.
+
+### Important: service upstart broken ###
+For some reason the service decided to not start automatically in the last update. This means that to have the programs running, 
+one must ssh into the machine, change directory, and manually invoke node:
+
+* vagrant ssh
+* cd /srv/oms-core/lib
+* node server.js &
+* cd /srv/oms-profiles-module/lib
+* node server.js &
+
+they will start normally, but when invoked with the upstart script nope.. (maybe the fault is of "forever")
 
 ### Remarks for Windows hosts ###
 
@@ -62,7 +75,19 @@ I tried to make the Vagrantfile as readable as possible but it's worth repeating
   2.  Stuff about installation of OMS: puppet/modules/aegee_oms_modules/manifests/init.pp
 
 ### Versions of Node.js and npm ###
-As defined in scripts/upgrade_node-npm.sh, the versions are:
+As defined in the manifest, the versions are:
 
 * node 4.1.2
 * npm 2.14.4
+
+(that version of npm is not defined, it is the one shipped with node 4.1.2)
+
+### Puppet version on the guest ###
+As defined in scripts/upgrade_puppet.sh, the release is *puppetlabs-release-trusty.deb* which is fixed at 
+
+* 3.8.6
+
+### phppgadmin and phpldapadmin ###
+The alias for phpldapadmin is not working because of conflicting       
+virtualhosts. Use apachedirectorystudio if ever needing ldap (doubt so).
+If you want, you can change configuration in puppet/modules/{aegee_ldap or aegee_postgre}
