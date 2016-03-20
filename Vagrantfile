@@ -7,7 +7,7 @@
 
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
-  config.vm.hostname = "aegee-virtual"
+  config.vm.hostname = "aegee-virtual.nowhere.nodomain"
 
   #HTTP port (apache2)
   config.vm.network "forwarded_port", guest: 80, host: 8888
@@ -29,18 +29,22 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "ignore/oms-profiles-module",   "/srv/oms-profiles-module"
   
 
-  #config.vm.provider "virtualbox" do |vb|
-  #  # Customize the amount of memory on the VM:
-  #  vb.memory = "1024"
-  #end
+  config.vm.provider "virtualbox" do |vb|
+    # Customize the amount of memory on the VM:
+    vb.memory = "1024"
+  end
 
   config.vm.provision :shell, :path => "scripts/upgrade_puppet.sh"
   config.vm.provision :shell, :path => "scripts/empty_folder.sh"
-  config.vm.provision :shell, :path => "scripts/install_mongo.sh"
-
+  
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = 'puppet/manifests'
     puppet.manifest_file = 'site.pp'
     puppet.module_path = 'puppet/modules'
+    puppet.options = "--hiera_config /vagrant/hiera.yaml" # add --verbose for more info and --debug for omgsomuch
   end
+
+  #sometimes puppet does not start it and i cannot redeclare it in the manifest so here it is
+  config.vm.provision :shell, :inline => "sudo service mongod start"
+
 end

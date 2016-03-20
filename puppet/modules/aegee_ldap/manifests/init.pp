@@ -78,7 +78,24 @@ define aegee_ldap (
       ldap_bind_id   => $rootdn,
       ldap_bind_pass => $rootpw,
       require        => Openldap::Server::Database[$dbname],
-    }
+    }->
+
+    #include ::apache
+    
+    apache::vhost { 'phpldapadmin':
+      servername => '127.0.0.1',
+      docroot     => '/var/www/html',
+      port        => 80,
+      aliases     => [
+        {
+          alias => '/phpLDAPAdmin',
+          path  => '/usr/share/phpldapadmin/htdocs/'
+        }, {
+          alias => '/phpldapadmin',
+          path  => '/usr/share/phpldapadmin/htdocs/'
+        }
+      ],
+    } 
   }
 
 }
