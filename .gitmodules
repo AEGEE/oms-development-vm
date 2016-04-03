@@ -58,3 +58,6 @@
 [submodule "puppet/modules/nodejs"]
 	path = puppet/modules/nodejs
 	url = https://github.com/willdurand/puppet-nodejs.git
+[submodule "puppet/modules/redis"]
+	path = puppet/modules/redis
+	url = https://github.com/echocat/puppet-redis
