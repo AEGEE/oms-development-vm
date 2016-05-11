@@ -30,7 +30,7 @@ aegee_oms_modules { 'oms-core':
   root_path   => '/srv/oms-core',
   git_source  => 'https://github.com/AEGEE/oms-core.git',
   git_branch  => 'dev',
-  require     => [ Package['forever'], Package['libkrb5-dev'], Class['mongodb'], ],
+  require     => [Package['forever'],Package['libkrb5-dev'],Class['mongodb'],],
 }
 ->
 #Profile
