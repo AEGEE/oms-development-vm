@@ -41,6 +41,15 @@ aegee_oms_modules { 'oms-profiles-module':
   git_branch  => 'dev',
 }
 ->
+#Events
+aegee_oms_modules { 'oms-events':
+  module_name => 'oms-events',
+  root_path   => '/srv/oms-events',
+  git_source  => 'https://github.com/AEGEE/oms-events.git',
+  git_branch  => 'dev',
+  require     => [Package['forever'],Package['libkrb5-dev'],Class['mongodb'],],
+}
+->
 
 #After cloning (at least the core), set up LDAP 
 aegee_ldap { 'aegee_ldap':

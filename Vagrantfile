@@ -24,7 +24,9 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 8090, host: 8900
   #cron
   config.vm.network "forwarded_port", guest: 8091, host: 8901
-
+  
+  #OMS-Events
+  config.vm.network "forwarded_port", guest: 8083, host: 8803
   
 
   #Sharing the content of the VM directly so we can work from the host
@@ -32,6 +34,7 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "ignore/oms-profiles-module",   "/srv/oms-profiles-module"
   config.vm.synced_folder "ignore/oms-cron",              "/srv/oms-cron"
   config.vm.synced_folder "ignore/oms-token-master",   "/srv/oms-token-master"
+  config.vm.synced_folder "ignore/oms-events",            "/srv/oms-events"
   
 
   config.vm.provider "virtualbox" do |vb|
