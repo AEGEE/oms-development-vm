@@ -47,7 +47,7 @@ aegee_oms_modules { 'oms-events':
   root_path   => '/srv/oms-events',
   git_source  => 'https://github.com/AEGEE/oms-events.git',
   git_branch  => 'dev',
-  require     => [Package['forever'],Package['libkrb5-dev'],Class['mongodb'],],
+  require     => [Package['libkrb5-dev'],Class['mongodb'],],
 }
 ->
 
