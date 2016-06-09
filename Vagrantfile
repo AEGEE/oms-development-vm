@@ -52,7 +52,7 @@ Vagrant.configure(2) do |config|
     puppet.options = "--hiera_config /vagrant/hiera.yaml" # add --verbose for more info and --debug for omgsomuch
   end
 
-  config.vm.provision :shell, :inline => "sudo npm install supervisor -g"
+  config.vm.provision :shell, :inline => "sudo npm install gulp -g"
 
   #sometimes puppet does not start it and i cannot redeclare it in the manifest so here it is
   config.vm.provision :shell, run: "always", :inline => "sudo service mongod start"

@@ -15,18 +15,7 @@ Simple LDAP server with Vagrant and Puppet as proof-of-concept of these technolo
 * READ SECTION BELOW
 * Visit phpLDAPadmin at http://localhost:8888/phpldapadmin in a browser.
 * If you want to use ApacheDirectoryStudio, use server at localhost:4444.
-
-### Important: service upstart broken ###
-For some reason the service decided to not start automatically in the last update. This means that to have the programs running, 
-one must ssh into the machine, change directory, and manually invoke node:
-
-* vagrant ssh
-* cd /srv/oms-core/lib
-* node server.js &
-* cd /srv/oms-profiles-module/lib
-* node server.js &
-
-they will start normally, but when invoked with the upstart script nope.. (maybe the fault is of "forever")
+* Maybe you will have to create the folders oms-events, oms-cron and oms-token-master in /ignore
 
 ### Remarks for Windows hosts ###
 
@@ -58,6 +47,8 @@ I tried to make the Vagrantfile as readable as possible but it's worth repeating
 |---|---|---|---|
 |8800|API|oms-core|8080|
 |8801|consumer|oms-profiles-module|8081|
+|---|API|oms-events|8082|
+|8803|consumer|oms-events|8083|
 
 ### Sharing the content of the VM directly so we can work from the host ###
 
@@ -65,6 +56,7 @@ I tried to make the Vagrantfile as readable as possible but it's worth repeating
 |---|---|---|---|
 |ignore/oms-core|/srv/oms-core|
 |ignore/oms-profiles-module|/srv/oms-profiles-module|
+|ignore/oms-events|/srv/oms-events|
 
 ### Structure of files and where to touch to modify as you please ###
 
