@@ -52,8 +52,12 @@ Vagrant.configure(2) do |config|
     puppet.options = "--hiera_config /vagrant/hiera.yaml" # add --verbose for more info and --debug for omgsomuch
   end
 
-  #sometimes puppet does not start it and i cannot redeclare it in the manifest so here it is
-  config.vm.provision :shell, :inline => "sudo service mongod start"
-  config.vm.provision :shell, :inline => "sudo service redis-server start"
+  config.vm.provision :shell, :inline => "sudo npm install supervisor -g"
 
+  #sometimes puppet does not start it and i cannot redeclare it in the manifest so here it is
+  config.vm.provision :shell, run: "always", :inline => "sudo service mongod start"
+  config.vm.provision :shell, run: "always", :inline => "sudo service redis-server start"
+  #Will start tmux sessions inside the machine running the services
+  #You can check their console output with tmux attach -t [core/profiles/events]
+  config.vm.provision :shell, run: "always", path: "runall.sh", privileged: false
 end
