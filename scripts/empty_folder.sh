@@ -1,22 +1,15 @@
 #!/bin/bash
 
-FOLDERS[0]="/srv/oms-core/"
-FOLDERS[1]="/srv/oms-cron/"
-FOLDERS[2]="/srv/oms-profiles-module/"
-FOLDERS[3]="/srv/oms-events/"
-FOLDERS[4]="/srv/oms-token-master/"
+folders=("/srv/oms-cron/" "/srv/oms-core/" "/srv/oms-profiles-module/" "/srv/oms-events/" "/srv/oms-token-master/")
 
 #removes the files inside the folders that are necessary 
 #to host the repo  
-for i in “${FOLDERS[@]}”
+for ix in ${!folders[*]}
 do
-	if [ -e $i.delme ]; then
-		rm $i.delme
-	fi
-	
-	if [ -e $i.gitkeep ]; then
-		rm $i.gitkeep
-	fi
+	cd /srv/
+	cd ${folders[$ix]}
+	rm .delme
+	rm .gitkeep
 done 
 
 
