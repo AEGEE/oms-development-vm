@@ -1,13 +1,24 @@
 #!/bin/bash
 
+FOLDERS[0]="/srv/oms-core/"
+FOLDERS[1]="/srv/oms-cron/"
+FOLDERS[2]="/srv/oms-profiles-module/"
+FOLDERS[3]="/srv/oms-events/"
+FOLDERS[4]="/srv/oms-token-master/"
+
 #removes the files inside the folders that are necessary 
 #to host the repo  
-if [ -e /srv/oms-core/.delme ]; then
-    rm /srv/oms-core/.delme
-fi
-if [ -e /srv/oms-profiles-module/.delme ]; then
-    rm /srv/oms-profiles-module/.delme
-fi
+for i in “${FOLDERS[@]}”
+do
+	if [ -e $i.delme ]; then
+		rm $i.delme
+	fi
+	
+	if [ -e $i.gitkeep ]; then
+		rm $i.gitkeep
+	fi
+done 
+
 
 #ignores the new files in the folders
 echo -e $'\n*' >> /vagrant/ignore/.gitignore
